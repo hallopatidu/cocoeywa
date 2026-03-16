@@ -502,6 +502,23 @@ export namespace utils {
             return entropy;
         }
 
+        /**
+         * Sử dụng regex để lấy tên file không có phần mở rộng từ URL.
+         * Ấn định rằng tên file không chứa dấu gạch chéo (/) hoặc dấu chấm (.) trong tên.
+         * @example
+         * @param url 
+         * @returns 
+         */
+        export function getFilenameWithoutExtension(url: string): string {
+            const pathname = new URL(url).pathname;
+            const match = pathname.match(/\/([^\/]+?)(?:\.[^\/.]+)?$/);
+            return match ? match[1] : '';
+        }
+
+        export function getPathWithoutFileName(fullUrl: string): string | null {
+            const match = fullUrl.match(/^([a-zA-Z]+:\/\/.+\/)[^\/]+\.[^\/]+$/);
+            return match ? match[1] : null;
+        }
 
     }// end StringUtils
 
