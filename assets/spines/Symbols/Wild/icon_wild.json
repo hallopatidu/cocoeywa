@@ -1,0 +1,778 @@
+{
+  "skeleton": {
+    "hash": "4gEQjXRcuJENrOvbDudKN69oWPE",
+    "spine": "3.8.75",
+    "x": -378,
+    "y": -907,
+    "width": 756,
+    "height": 1638,
+    "images": "",
+    "audio": ""
+  },
+  "bones": [
+    { "name": "root" },
+    { "name": "bone", "parent": "root" },
+    { "name": "Master", "parent": "root", "transform": "onlyTranslation" },
+    { "name": "Mesh_grp", "parent": "Master", "transform": "onlyTranslation" },
+    { "name": "Bone_grp", "parent": "Master", "transform": "onlyTranslation" },
+    { "name": "Firehorse_Grp", "parent": "Bone_grp", "x": 37.7, "y": 20.8 },
+    { "name": "icon", "parent": "Bone_grp" },
+    { "name": "bone2", "parent": "root" },
+    { "name": "Glow_grp", "parent": "Bone_grp" },
+    { "name": "Rainingwild", "parent": "Mesh_grp", "x": -8.43, "y": 31.19, "scaleX": 1.399, "scaleY": 1.1264 },
+    { "name": "text_wild", "parent": "Bone_grp", "x": -0.99, "y": -44.07 }
+  ],
+  "slots": [
+    { "name": "BG", "bone": "Master" },
+    { "name": "clip_icon", "bone": "Bone_grp", "attachment": "clip_icon" },
+    { "name": "icon", "bone": "Mesh_grp", "attachment": "images/icon" },
+    { "name": "iconglow", "bone": "Glow_grp", "attachment": "images/icon", "blend": "additive" },
+    { "name": "iconblur", "bone": "Mesh_grp", "attachment": "images/iconblur" },
+    { "name": "images/1", "bone": "Firehorse_Grp", "attachment": "images/1" },
+    { "name": "horse", "bone": "Glow_grp", "attachment": "images/1", "blend": "additive" },
+    { "name": "frame", "bone": "Mesh_grp", "attachment": "images/frame" },
+    { "name": "text_wild", "bone": "Mesh_grp", "attachment": "images/text_wild" },
+    { "name": "text_glow", "bone": "Glow_grp", "attachment": "images/text_wild", "blend": "additive" },
+    { "name": "clip_textshine", "bone": "Bone_grp", "attachment": "clip_textshine" },
+    { "name": "text_wildShine", "bone": "Mesh_grp", "color": "ffffff62", "attachment": "images/text_wild", "blend": "additive" },
+    { "name": "images/fire_1", "bone": "Rainingwild", "attachment": "images/fire_1", "blend": "additive" }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "iconglow": {
+          "images/icon": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 6, 61.5, -57, 1, 1, 6, -61.5, -57, 1, 1, 6, -61.5, 57, 1, 1, 6, 61.5, 57, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 123,
+            "height": 114
+          }
+        },
+        "clip_icon": {
+          "clip_icon": {
+            "type": "clipping",
+            "end": "text_glow",
+            "vertexCount": 14,
+            "vertices": [
+              54.77, 108.13, 45.49, 108.13, 32.21, 108.13, 20.45, 108.13, 4.42, 108.13, -9.17, 108.13, -21.55, 108.13, -31.83, 108.13, -46.92, 108.13,
+              -52.95, 108.13, -64.62, 108.13, -66.86, -61.59, 65.21, -62.72, 65.21, 108.13
+            ],
+            "color": "ce3a3aff"
+          }
+        },
+        "text_wildShine": {
+          "images/text_wild": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 10, 56, -23, 1, 1, 10, -55, -23, 1, 1, 10, -55, 23, 1, 1, 10, 56, 23, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 111,
+            "height": 46
+          }
+        },
+        "images/1": {
+          "images/1": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/2": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/3": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/4": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/5": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/6": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/7": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/8": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/9": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/10": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/11": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/12": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/13": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/14": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/15": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/16": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/17": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/18": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/19": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/20": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/21": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/22": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/23": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/24": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/25": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/26": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/27": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          },
+          "images/28": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [96, -72.5, -96, -72.5, -96, 72.5, 96, 72.5],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          }
+        },
+        "text_wild": {
+          "images/text_wild": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 10, 56, -23, 1, 1, 10, -55, -23, 1, 1, 10, -55, 23, 1, 1, 10, 56, 23, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 111,
+            "height": 46
+          }
+        },
+        "horse": {
+          "images/1": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [133.7, -51.7, -58.3, -51.7, -58.3, 93.3, 133.7, 93.3],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 192,
+            "height": 145
+          }
+        },
+        "text_glow": {
+          "images/text_wild": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 10, 56, -23, 1, 1, 10, -55, -23, 1, 1, 10, -55, 23, 1, 1, 10, 56, 23, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 111,
+            "height": 46
+          }
+        },
+        "iconblur": {
+          "images/iconblur": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 6, 61.5, -85, 1, 1, 6, -61.5, -85, 1, 1, 6, -61.5, 85, 1, 1, 6, 61.5, 85, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 123,
+            "height": 170
+          }
+        },
+        "frame": {
+          "images/frame": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 6, 61.52, -57, 1, 1, 6, -61.48, -57, 1, 1, 6, -61.48, 57, 1, 1, 6, 61.52, 57, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 123,
+            "height": 114
+          }
+        },
+        "clip_textshine": {
+          "clip_textshine": {
+            "type": "clipping",
+            "end": "text_wildShine",
+            "vertexCount": 4,
+            "vertices": [-71.86, -16.92, -49.26, -66.19, -67.55, -65.94, -91.93, -16.66],
+            "color": "ce3a3aff"
+          }
+        },
+        "images/fire_1": {
+          "images/fire_1": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [90, -95, -90, -95, -90, 95, 90, 95],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 180,
+            "height": 190
+          },
+          "images/fire_2": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [90, -95, -90, -95, -90, 95, 90, 95],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 180,
+            "height": 190
+          },
+          "images/fire_3": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [90, -95, -90, -95, -90, 95, 90, 95],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 180,
+            "height": 190
+          },
+          "images/fire_4": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [90, -95, -90, -95, -90, 95, 90, 95],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 180,
+            "height": 190
+          },
+          "images/fire_5": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [90, -95, -90, -95, -90, 95, 90, 95],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 180,
+            "height": 190
+          },
+          "images/fire_6": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [90, -95, -90, -95, -90, 95, 90, 95],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 180,
+            "height": 190
+          },
+          "images/fire_7": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [90, -95, -90, -95, -90, 95, 90, 95],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 180,
+            "height": 190
+          },
+          "images/fire_8": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [90, -95, -90, -95, -90, 95, 90, 95],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 180,
+            "height": 190
+          }
+        },
+        "icon": {
+          "images/icon": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 6, 61.5, -57, 1, 1, 6, -61.5, -57, 1, 1, 6, -61.5, 57, 1, 1, 6, 61.5, 57, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 123,
+            "height": 114
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "activated": {
+      "slots": {
+        "iconblur": { "color": [{ "color": "ffffff00" }] },
+        "text_glow": { "color": [{ "color": "ffffff00" }] },
+        "iconglow": { "color": [{ "color": "ffffff00" }] },
+        "images/1": {
+          "attachment": [
+            { "time": 0.0333, "name": "images/2" },
+            { "time": 0.0667, "name": "images/3" },
+            { "time": 0.1, "name": "images/4" },
+            { "time": 0.1333, "name": "images/5" },
+            { "time": 0.1667, "name": "images/6" },
+            { "time": 0.2, "name": "images/7" },
+            { "time": 0.2333, "name": "images/8" },
+            { "time": 0.2667, "name": "images/9" },
+            { "time": 0.3, "name": "images/10" },
+            { "time": 0.3333, "name": "images/11" },
+            { "time": 0.3667, "name": "images/12" },
+            { "time": 0.4, "name": "images/13" },
+            { "time": 0.4333, "name": "images/14" },
+            { "time": 0.4667, "name": "images/15" },
+            { "time": 0.5, "name": "images/16" },
+            { "time": 0.5333, "name": "images/17" },
+            { "time": 0.5667, "name": "images/18" },
+            { "time": 0.6, "name": "images/19" },
+            { "time": 0.6333, "name": "images/20" },
+            { "time": 0.6667, "name": "images/21" },
+            { "time": 0.7, "name": "images/22" },
+            { "time": 0.7333, "name": "images/23" },
+            { "time": 0.7667, "name": "images/24" },
+            { "time": 0.8, "name": "images/25" },
+            { "time": 0.8333, "name": "images/26" },
+            { "time": 0.8667, "name": "images/27" },
+            { "time": 0.9, "name": "images/28" },
+            { "time": 0.9333, "name": "images/1" }
+          ]
+        },
+        "horse": { "color": [{ "color": "ffffff00" }] },
+        "images/fire_1": { "color": [{ "color": "ffffff00" }] }
+      },
+      "bones": {
+        "Firehorse_Grp": { "scale": [{}, { "time": 0.5, "x": 1.045, "y": 1.045 }, { "time": 0.9333 }] },
+        "text_wild": { "scale": [{}, { "time": 0.5, "x": 1.089, "y": 1.089 }, { "time": 0.9333 }] }
+      },
+      "deform": {
+        "default": {
+          "clip_icon": {
+            "clip_icon": [
+              {
+                "offset": 2,
+                "vertices": [
+                  96.77489, 0, 0, 0, 0, 0, 0, 0, -84.15192, 0, -36.86409, -147.58386, 0, 0, -8.81203, -152.86687, 0, 0, 13.52107, -157.46889,
+                  17.66098, 8.53402, -110.92198, -4.9389, 77.79591, -177.15787
+                ]
+              },
+              {
+                "time": 0.5,
+                "offset": 2,
+                "vertices": [
+                  95.58987, 0, 0, 0, 0, 0, 0, 0, -84.15192, 0, -36.86409, -147.58386, 0, 0, -8.81203, -152.86687, 0, 0, 11.34305, -157.46889,
+                  14.69098, 8.53402, -114.88197, -7.71089, 77.79591, -179.92984
+                ]
+              }
+            ]
+          },
+          "clip_textshine": { "clip_textshine": [{}, { "time": 0.9333, "vertices": [141.22385, 0, 141.22385, 0, 141.22385, 0, 141.22385] }] }
+        }
+      },
+      "drawOrder": [{ "offsets": [{ "slot": "clip_icon", "offset": 3 }] }]
+    },
+    "blur": {
+      "slots": {
+        "frame": { "color": [{ "color": "ffffff00" }] },
+        "text_glow": { "color": [{ "color": "ffffff00" }] },
+        "iconglow": { "color": [{ "color": "ffffff00" }] },
+        "text_wildShine": { "color": [{ "color": "ffffff00" }] },
+        "images/1": { "color": [{ "color": "ffffff00" }] },
+        "horse": { "color": [{ "color": "ffffff00" }] },
+        "icon": { "color": [{ "color": "ffffff00" }] },
+        "images/fire_1": { "color": [{ "color": "ffffff00" }] },
+        "text_wild": { "color": [{ "color": "ffffff00" }] }
+      },
+      "deform": { "default": { "clip_icon": { "clip_icon": [{ "offset": 23, "vertices": [-29.98797, 0, -29.98797] }] } } }
+    },
+    "default": {
+      "slots": {
+        "frame": { "color": [{ "color": "ffffff00" }] },
+        "iconblur": { "color": [{ "color": "ffffff00" }] },
+        "text_glow": { "color": [{ "color": "ffffff00" }] },
+        "iconglow": { "color": [{ "color": "ffffff00" }] },
+        "horse": { "color": [{ "color": "ffffff00" }] },
+        "images/fire_1": { "color": [{ "color": "ffffff00" }] }
+      }
+    },
+    "RainingWild": {
+      "slots": {
+        "frame": { "color": [{ "color": "ffffff00" }] },
+        "iconblur": { "color": [{ "color": "ffffff00" }] },
+        "text_glow": {
+          "color": [
+            { "time": 0.4333, "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+            { "time": 0.8333, "color": "ffffff00" }
+          ]
+        },
+        "iconglow": {
+          "color": [
+            { "time": 0.4333, "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+            { "time": 0.8333, "color": "ffffff00" }
+          ]
+        },
+        "horse": {
+          "color": [
+            { "time": 0.4333, "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+            { "time": 0.8333, "color": "ffffff00" }
+          ]
+        },
+        "images/fire_1": {
+          "attachment": [
+            { "name": null },
+            { "time": 0.0333, "name": "images/fire_1" },
+            { "time": 0.1333, "name": "images/fire_2" },
+            { "time": 0.2333, "name": "images/fire_3" },
+            { "time": 0.3333, "name": "images/fire_4" },
+            { "time": 0.4333, "name": "images/fire_5" },
+            { "time": 0.5333, "name": "images/fire_6" },
+            { "time": 0.6333, "name": "images/fire_7" },
+            { "time": 0.7333, "name": "images/fire_8" },
+            { "time": 0.8333, "name": null }
+          ]
+        }
+      },
+      "bones": {
+        "Bone_grp": {
+          "scale": [
+            { "x": 1.864, "y": 1.864, "curve": 0.25, "c3": 0.75 },
+            { "time": 0.1333, "x": 0.791, "y": 0.791, "curve": 0.25, "c3": 0.75 },
+            { "time": 0.2333, "x": 1.093, "y": 1.093, "curve": 0.25, "c3": 0.75 },
+            { "time": 0.3333 }
+          ]
+        }
+      },
+      "deform": {
+        "default": {
+          "clip_icon": {
+            "clip_icon": [
+              {
+                "offset": 1,
+                "vertices": [
+                  -178.95694, 0, -177.71144, 0, -177.71144, 0, -178.95694, 0, -177.71144, 0, -177.71144, 0, -177.71144, 0, -178.95694, 0, -177.71144,
+                  0, -178.95694, -0.604, -177.11046, 1.50995, -11.51049, 10.3739, -11.51049, 9.7699, -177.11046
+                ],
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.0667,
+                "offset": 1,
+                "vertices": [
+                  -178.12888, 0, -177.71144, 0, -177.71144, 0, -178.12888, 0, -177.71144, 0, -177.71144, 0, -177.71144, 0, -178.12888, 0, -177.71144,
+                  0, -178.12888, -0.604, -177.11046, 1.50995, -11.51049, 10.3739, -11.51049, 9.7699, -177.11046
+                ],
+                "curve": 0.25,
+                "c3": 0.625,
+                "c4": 0.5
+              },
+              {
+                "time": 0.1,
+                "vertices": [
+                  4.93214, -172.15219, 0.30963, -165.4491, -9.81098, -166.86688, -11.33123, -167.05469, -10.52766, -164.71727, -2.43999, -160.49007,
+                  3.16299, -166.62408, 3.73141, -168.46057, 7.83151, -165.24509, 3.79396, -163.42609, -1.95796, -160.38841, 1.50995, -9.07724,
+                  10.75195, -9.07724, 10.14795, -165.2586
+                ],
+                "curve": 0.375,
+                "c2": 0.5,
+                "c3": 0.75
+              },
+              {
+                "time": 0.1333,
+                "vertices": [
+                  9.86428, -166.17549, 1.7783, -152.02773, 0.8545, -162.5902, -7.20852, -153.27605, -7.91949, -141.29167, -4.87997, -141.72322,
+                  2.46247, -145.10538, 14.4171, -126.33891, 23.38999, -134.6205, 7.58792, -148.72328, -3.31192, -143.66637, 1.50995, -6.64399, 11.13,
+                  -6.64399, 10.526, -153.40674
+                ],
+                "curve": 0.243,
+                "c3": 0.649,
+                "c4": 0.6
+              },
+              {
+                "time": 0.2,
+                "vertices": [
+                  -16.03706, -156.572, -14.99208, -156.57028, -10.48201, -152.31622, -9.6971, -142.6179, -6.11162, -135.28362, -8.53039, -117.72866,
+                  -2.33576, -148.9454, 6.43548, -148.25354, 15.3668, -139.59769, 3.97018, -147.7621, 0.64158, -161.69229, 1.50995, -6.64399, 8.28307,
+                  -6.64399, -8.40771, -152.12936
+                ],
+                "curve": 0.382,
+                "c2": 0.57,
+                "c3": 0.735
+              },
+              {
+                "time": 0.2333,
+                "vertices": [
+                  -5.91904, -109.92436, -4.99938, -122.59899, -9.15072, -105.81892, -9.01943, -104.28727, -11.63444, -100.8752, -1.24196, -88.25562,
+                  -5.90082, -83.49988, -3.38231, -102.03241, 4.28469, -97.06373, 2.53668, -94.14038, 0.21127, -103.94749, 1.50995, -6.64399, 7.155,
+                  -6.64399, 6.55099, -134.56952
+                ],
+                "curve": 0.265,
+                "c3": 0.618,
+                "c4": 0.43
+              },
+              {
+                "time": 0.2667,
+                "vertices": [
+                  -5.68223, -122.68398, -3.13048, -125.96329, 0.40145, -114.69057, 5.8269, -108.07705, 7.00983, -105.24687, 5.66111, -100.94472,
+                  7.93498, -107.66651, 8.57998, -99.97587, 17.61448, -94.28396, 12.93644, -102.20998, 0.98273, -96.17204, 1.50995, -6.64399, 7.6743,
+                  -6.64399, 7.13265, -109.31651
+                ],
+                "curve": 0.325,
+                "c2": 0.31,
+                "c3": 0.675,
+                "c4": 0.69
+              },
+              {
+                "time": 0.3,
+                "vertices": [
+                  -5.68591, -123.25642, -6.51771, -123.68697, 2.42989, -118.25389, 9.66933, -113.02795, 19.93896, -103.69426, 21.95153, -105.90572,
+                  29.05221, -105.70324, 17.21959, -106.45831, 26.31876, -104.79248, 10.21607, -105.27305, 2.15196, -84.38762, 1.50995, -6.64399,
+                  8.46136, -6.64399, 8.0142, -71.04318
+                ],
+                "curve": 0.382,
+                "c2": 0.57,
+                "c3": 0.735
+              },
+              {
+                "time": 0.3333,
+                "vertices": [
+                  6.95099, -45.67797, 9.09839, -40.03927, -26.15278, -35.64966, -21.84598, -40.38198, -17.24005, -44.36867, -12.68734, -42.32706,
+                  -20.26677, -44.7002, -11.91599, -41.70599, -3.06698, -49.22443, -5.29599, -54.94598, -0.34254, -52.5575, 1.50995, -6.64399, 8.97899,
+                  -6.64399, 8.59398, -45.87136
+                ],
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              { "time": 0.4333, "offset": 20, "vertices": [-0.604, -21.54617, 1.50995, -6.64399, 14.69998, -6.64399, 14.09598, -21.54617] }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "skeleton": {
+    "hash": "Cxdm31rvaAm+Oz3W1lbrWYLUA6Q",
+    "spine": "3.8.75",
+    "x": -378,
+    "y": -907,
+    "width": 756,
+    "height": 1638,
+    "images": "",
+    "audio": ""
+  },
+  "bones": [
+    { "name": "root" },
+    { "name": "bone", "parent": "root" },
+    { "name": "bone2", "parent": "root" },
+    { "name": "Master", "parent": "root", "transform": "onlyTranslation" },
+    { "name": "Bone_grp", "parent": "Master", "transform": "onlyTranslation" },
+    { "name": "icon", "parent": "Bone_grp" },
+    { "name": "Mesh_grp", "parent": "Master", "transform": "onlyTranslation" }
+  ],
+  "slots": [
+    { "name": "BG", "bone": "Master" },
+    { "name": "icon", "bone": "Mesh_grp", "attachment": "images/icon" },
+    { "name": "iconblur", "bone": "Mesh_grp", "attachment": "images/iconblur" }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "iconblur": {
+          "images/iconblur": {
+            "type": "mesh",
+            "uvs": [0.91724, 1, 0.08276, 1, 0.08276, 0, 0.91724, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 5, 64.3, -73.18, 1, 1, 5, -56.7, -73.18, 1, 1, 5, -56.7, 85.82, 1, 1, 5, 64.3, 85.82, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 145,
+            "height": 145
+          }
+        },
+        "icon": {
+          "images/icon": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 5, 71.95, -64.2, 1, 1, 5, -73.05, -64.2, 1, 1, 5, -73.05, 80.8, 1, 1, 5, 71.95, 80.8, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 145,
+            "height": 145
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "activated": {
+      "slots": { "iconblur": { "color": [{ "color": "ffffff00" }] } },
+      "bones": {
+        "icon": { "scale": [{ "curve": 0.25, "c3": 0.75 }, { "time": 0.5, "x": 1.1, "y": 1.1, "curve": 0.25, "c3": 0.75 }, { "time": 1 }] },
+        "Bone_grp": { "translate": [{ "x": 7.1 }] }
+      }
+    },
+    "blur": { "slots": { "icon": { "color": [{ "color": "ffffff00" }] } }, "bones": { "Bone_grp": { "translate": [{ "x": 7.11 }] } } },
+    "default": { "slots": { "iconblur": { "color": [{ "color": "ffffff00" }] } }, "bones": { "Bone_grp": { "translate": [{ "x": 7.11 }] } } }
+  }
+}

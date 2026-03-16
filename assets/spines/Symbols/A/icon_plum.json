@@ -1,0 +1,65 @@
+{
+  "skeleton": {
+    "hash": "6VudkDHBxVGr3ZTLlLbNBlDvXno",
+    "spine": "3.8.75",
+    "x": -378,
+    "y": -907,
+    "width": 756,
+    "height": 1638,
+    "images": "",
+    "audio": ""
+  },
+  "bones": [
+    { "name": "root" },
+    { "name": "bone", "parent": "root" },
+    { "name": "bone2", "parent": "root" },
+    { "name": "Master", "parent": "root", "transform": "onlyTranslation" },
+    { "name": "Bone_grp", "parent": "Master", "transform": "onlyTranslation" },
+    { "name": "icon", "parent": "Bone_grp" },
+    { "name": "Mesh_grp", "parent": "Master", "transform": "onlyTranslation" }
+  ],
+  "slots": [
+    { "name": "BG", "bone": "Master" },
+    { "name": "icon", "bone": "Mesh_grp", "attachment": "images/icon" },
+    { "name": "iconblur", "bone": "Mesh_grp", "attachment": "images/iconblur" }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "iconblur": {
+          "images/iconblur": {
+            "type": "mesh",
+            "uvs": [0.85172, 0.97586, 0.14828, 0.97586, 0.14828, 0.02414, 0.85172, 0.02414],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 5, 50.26, -65.54, 1, 1, 5, -51.74, -65.54, 1, 1, 5, -51.74, 72.46, 1, 1, 5, 50.26, 72.46, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 145,
+            "height": 145
+          }
+        },
+        "icon": {
+          "images/icon": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 5, 75.88, -74.88, 1, 1, 5, -72.12, -74.88, 1, 1, 5, -72.12, 73.12, 1, 1, 5, 75.88, 73.12, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 145,
+            "height": 145
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "activated": {
+      "slots": { "iconblur": { "color": [{ "color": "ffffff00" }] } },
+      "bones": { "icon": { "scale": [{ "curve": 0.25, "c3": 0.75 }, { "time": 0.5, "x": 1.1, "y": 1.1, "curve": 0.25, "c3": 0.75 }, { "time": 1 }] } }
+    },
+    "blur": { "slots": { "icon": { "color": [{ "color": "ffffff00" }] } } },
+    "default": { "slots": { "iconblur": { "color": [{ "color": "ffffff00" }] } } }
+  }
+}

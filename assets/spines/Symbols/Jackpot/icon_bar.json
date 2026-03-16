@@ -1,0 +1,143 @@
+{
+  "skeleton": {
+    "hash": "lKe4UOEgIzqamLM0nFZX4RAhMSQ",
+    "spine": "3.8.75",
+    "x": -378,
+    "y": -907,
+    "width": 756,
+    "height": 1638,
+    "images": "",
+    "audio": ""
+  },
+  "bones": [
+    { "name": "root" },
+    { "name": "bone", "parent": "root" },
+    { "name": "Master", "parent": "root", "transform": "onlyTranslation" },
+    { "name": "Bone_grp", "parent": "Master", "transform": "onlyTranslation" },
+    { "name": "icon", "parent": "Bone_grp" },
+    { "name": "icon_text", "parent": "icon" },
+    { "name": "Mesh_grp", "parent": "Master", "transform": "onlyTranslation" }
+  ],
+  "slots": [
+    { "name": "BG", "bone": "Master" },
+    { "name": "icon", "bone": "Mesh_grp", "attachment": "images/icon" },
+    { "name": "clip_icon_shine", "bone": "Mesh_grp", "attachment": "clip_icon_shine" },
+    { "name": "icon_shine", "bone": "Mesh_grp", "color": "ffffff84", "attachment": "images/icon", "blend": "additive" },
+    { "name": "iconblur", "bone": "Mesh_grp", "attachment": "images/iconblur" },
+    { "name": "icon_text", "bone": "Mesh_grp", "attachment": "images/icon_text" },
+    { "name": "icon_text_shine", "bone": "Mesh_grp", "color": "ffa400ff", "attachment": "images/icon_text", "blend": "additive" }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "icon_text_shine": {
+          "images/icon_text": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 5, 44.25, -52.98, 1, 1, 5, -41.75, -52.98, 1, 1, 5, -41.75, 56.02, 1, 1, 5, 44.25, 56.02, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 86,
+            "height": 109
+          }
+        },
+        "iconblur": {
+          "images/iconblur": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 4, 78.02, -77, 1, 1, 4, -78.98, -77, 1, 1, 4, -78.98, 78, 1, 1, 4, 78.02, 78, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 157,
+            "height": 155
+          }
+        },
+        "icon_shine": {
+          "images/icon": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 4, 73.41, -65.5, 1, 1, 4, -71.59, -65.5, 1, 1, 4, -71.59, 69.5, 1, 1, 4, 73.41, 69.5, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 145,
+            "height": 135
+          }
+        },
+        "icon_text": {
+          "images/icon_text": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 5, 44.25, -52.98, 1, 1, 5, -41.75, -52.98, 1, 1, 5, -41.75, 56.02, 1, 1, 5, 44.25, 56.02, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 86,
+            "height": 109
+          }
+        },
+        "clip_icon_shine": {
+          "clip_icon_shine": {
+            "type": "clipping",
+            "end": "icon_shine",
+            "vertexCount": 4,
+            "vertices": [-117.11, 72.07, -61.99, -62.27, -84.42, -62.55, -144.25, 72.9],
+            "color": "ce3a3aff"
+          }
+        },
+        "icon": {
+          "images/icon": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 4, 73.41, -65.5, 1, 1, 4, -71.59, -65.5, 1, 1, 4, -71.59, 69.5, 1, 1, 4, 73.41, 69.5, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 145,
+            "height": 135
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "activated": {
+      "slots": {
+        "icon_text_shine": {
+          "color": [
+            { "color": "ffa40000", "curve": 0, "c2": 0.27, "c3": 0.75 },
+            { "time": 0.5, "color": "ffa400c4", "curve": 0, "c2": 0.27, "c3": 0.75 },
+            { "time": 1, "color": "ffa40000" }
+          ]
+        },
+        "iconblur": { "color": [{ "color": "ffffff00" }] },
+        "icon_shine": {
+          "color": [
+            { "color": "ffffff23", "curve": 0, "c2": 0.27, "c3": 0.75 },
+            { "time": 0.5, "color": "ffffff48", "curve": 0, "c2": 0.27, "c3": 0.75 },
+            { "time": 1, "color": "ffffff23" }
+          ]
+        }
+      },
+      "bones": {
+        "icon": { "scale": [{ "curve": 0.25, "c3": 0.75 }, { "time": 0.5, "x": 1.1, "y": 1.1, "curve": 0.25, "c3": 0.75 }, { "time": 1 }] },
+        "icon_text": { "scale": [{}, { "time": 0.5, "x": 1.08, "y": 1.08 }, { "time": 1 }] }
+      },
+      "deform": {
+        "default": { "clip_icon_shine": { "clip_icon_shine": [{}, { "time": 1, "vertices": [203.318, 0, 203.318, 0, 203.318, 0, 203.318] }] } }
+      }
+    },
+    "blur": {
+      "slots": {
+        "icon_text_shine": { "attachment": [{ "name": null }] },
+        "icon_text": { "attachment": [{ "name": null }] },
+        "icon": { "color": [{ "color": "ffffff00" }] },
+        "icon_shine": { "color": [{ "color": "ffffff00" }] }
+      }
+    },
+    "default": { "slots": { "icon_text_shine": { "attachment": [{ "name": null }] }, "iconblur": { "color": [{ "color": "ffffff00" }] } } }
+  }
+}

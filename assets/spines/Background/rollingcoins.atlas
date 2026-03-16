@@ -1,0 +1,20 @@
+
+rollingcoins.png
+size: 306,93
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/light
+  rotate: true
+  xy: 280, 59
+  size: 32, 24
+  orig: 32, 24
+  offset: 0, 0
+  index: -1
+images/moneyCoin
+  rotate: false
+  xy: 2, 2
+  size: 276, 89
+  orig: 276, 89
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,27 @@
+
+icon_777.png
+size: 374,185
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/glow
+  rotate: false
+  xy: 191, 2
+  size: 27, 14
+  orig: 27, 14
+  offset: 0, 0
+  index: -1
+images/icon
+  rotate: false
+  xy: 191, 18
+  size: 181, 165
+  orig: 181, 165
+  offset: 0, 0
+  index: -1
+images/iconblur
+  rotate: true
+  xy: 2, 2
+  size: 181, 187
+  orig: 181, 187
+  offset: 0, 0
+  index: -1

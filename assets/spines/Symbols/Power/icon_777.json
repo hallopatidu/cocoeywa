@@ -1,0 +1,152 @@
+{
+  "skeleton": {
+    "hash": "qZMR3kjG0SeINtCwj4i5FInn0AQ",
+    "spine": "3.8.75",
+    "x": -378,
+    "y": -907,
+    "width": 756,
+    "height": 1638,
+    "images": "",
+    "audio": ""
+  },
+  "bones": [
+    { "name": "root" },
+    { "name": "bone", "parent": "root" },
+    { "name": "bone2", "parent": "root" },
+    { "name": "Master", "parent": "root", "transform": "onlyTranslation" },
+    { "name": "Bone_grp", "parent": "Master", "transform": "onlyTranslation" },
+    { "name": "icon", "parent": "Bone_grp" },
+    { "name": "Mesh_grp", "parent": "Master", "transform": "onlyTranslation" }
+  ],
+  "slots": [
+    { "name": "BG", "bone": "Master" },
+    { "name": "icon", "bone": "Mesh_grp", "attachment": "images/icon" },
+    { "name": "clip", "bone": "Mesh_grp", "attachment": "clip" },
+    { "name": "icon_shine", "bone": "Mesh_grp", "color": "ffffff40", "attachment": "images/icon", "blend": "additive" },
+    { "name": "iconblur", "bone": "Mesh_grp", "attachment": "images/iconblur" },
+    { "name": "glow", "bone": "Mesh_grp", "attachment": "images/glow", "blend": "additive" },
+    { "name": "glow2", "bone": "Mesh_grp", "attachment": "images/glow", "blend": "additive" }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "glow2": {
+          "images/glow": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 5, 10.16, 9.63, 1, 1, 5, -5.88, -24.07, 1, 1, 5, -18.62, -18.29, 1, 1, 5, -2.58, 15.41, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 27,
+            "height": 14
+          }
+        },
+        "glow": {
+          "images/glow": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 5, 1.86, 44.3, 1, 1, 5, -25.14, 44.3, 1, 1, 5, -25.14, 58.3, 1, 1, 5, 1.86, 58.3, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 27,
+            "height": 14
+          }
+        },
+        "clip": {
+          "clip": {
+            "type": "clipping",
+            "end": "icon_shine",
+            "vertexCount": 4,
+            "vertices": [-141, 68, -67.6, -83.67, -114.6, -84.67, -194, 68],
+            "color": "ce3a3aff"
+          }
+        },
+        "iconblur": {
+          "images/iconblur": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 5, 90.5, -93.5, 1, 1, 5, -90.5, -93.5, 1, 1, 5, -90.5, 93.5, 1, 1, 5, 90.5, 93.5, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 181,
+            "height": 187
+          }
+        },
+        "icon_shine": {
+          "images/icon": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 5, 90.5, -82.5, 1, 1, 5, -90.5, -82.5, 1, 1, 5, -90.5, 82.5, 1, 1, 5, 90.5, 82.5, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 181,
+            "height": 165
+          }
+        },
+        "icon": {
+          "images/icon": {
+            "type": "mesh",
+            "uvs": [1, 1, 0, 1, 0, 0, 1, 0],
+            "triangles": [1, 2, 3, 1, 3, 0],
+            "vertices": [1, 5, 90.5, -82.5, 1, 1, 5, -90.5, -82.5, 1, 1, 5, -90.5, 82.5, 1, 1, 5, 90.5, 82.5, 1],
+            "hull": 4,
+            "edges": [0, 2, 2, 4, 4, 6, 0, 6],
+            "width": 181,
+            "height": 165
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "activated": {
+      "slots": {
+        "iconblur": { "color": [{ "color": "ffffff00" }] },
+        "glow": { "color": [{ "color": "ffffff00" }, { "time": 0.5, "color": "ffffffff" }, { "time": 1, "color": "ffffff00" }] },
+        "glow2": { "color": [{ "color": "ffffff00" }, { "time": 0.5, "color": "ffffffff" }, { "time": 1, "color": "ffffff00" }] }
+      },
+      "bones": {
+        "icon": { "scale": [{ "curve": 0.25, "c3": 0.75 }, { "time": 0.5, "x": 1.1, "y": 1.1, "curve": 0.25, "c3": 0.75 }, { "time": 1 }] }
+      },
+      "deform": {
+        "default": {
+          "clip": { "clip": [{}, { "time": 1, "vertices": [262, 0, 262, 0, 262, 0, 262] }] },
+          "glow": {
+            "images/glow": [
+              {},
+              { "time": 0.5, "vertices": [7.74245, -4.01461, -7.74245, -4.01461, -7.74245, 4.01462, 7.74245, 4.01462] },
+              { "time": 1 }
+            ]
+          },
+          "glow2": {
+            "images/glow": [
+              {},
+              { "time": 0.5, "vertices": [11.98511, 11.62051, -1.37082, -16.44057, -11.98512, -11.62053, 1.37081, 16.44057] },
+              { "time": 1 }
+            ]
+          }
+        }
+      }
+    },
+    "blur": {
+      "slots": {
+        "icon": { "color": [{ "color": "ffffff00" }] },
+        "glow": { "color": [{ "color": "ffffff00" }] },
+        "glow2": { "color": [{ "color": "ffffff00" }] },
+        "icon_shine": { "color": [{ "color": "ffffff00" }] }
+      }
+    },
+    "default": {
+      "slots": {
+        "iconblur": { "color": [{ "color": "ffffff00" }] },
+        "glow": { "color": [{ "color": "ffffff00" }] },
+        "glow2": { "color": [{ "color": "ffffff00" }] }
+      }
+    }
+  }
+}

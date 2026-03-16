@@ -1,0 +1,20 @@
+
+icon_lemon.png
+size: 326,149
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+icon
+  rotate: false
+  xy: 179, 2
+  size: 145, 145
+  orig: 145, 145
+  offset: 0, 0
+  index: -1
+iconblur
+  rotate: true
+  xy: 2, 2
+  size: 145, 175
+  orig: 145, 175
+  offset: 0, 0
+  index: -1

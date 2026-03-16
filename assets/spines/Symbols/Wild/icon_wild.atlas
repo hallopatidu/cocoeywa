@@ -1,0 +1,286 @@
+
+icon_wild.png
+size: 2028,584
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/1
+  rotate: true
+  xy: 2, 390
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/10
+  rotate: true
+  xy: 443, 390
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/11
+  rotate: true
+  xy: 443, 196
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/12
+  rotate: true
+  xy: 443, 2
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/13
+  rotate: true
+  xy: 590, 390
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/14
+  rotate: true
+  xy: 590, 196
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/15
+  rotate: true
+  xy: 590, 2
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/16
+  rotate: true
+  xy: 737, 390
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/17
+  rotate: true
+  xy: 737, 196
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/18
+  rotate: true
+  xy: 737, 2
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/19
+  rotate: true
+  xy: 884, 390
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/2
+  rotate: true
+  xy: 2, 196
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/20
+  rotate: true
+  xy: 884, 196
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/21
+  rotate: true
+  xy: 884, 2
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/22
+  rotate: true
+  xy: 1031, 390
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/23
+  rotate: true
+  xy: 1031, 196
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/24
+  rotate: true
+  xy: 1031, 2
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/25
+  rotate: true
+  xy: 1178, 390
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/26
+  rotate: true
+  xy: 1178, 196
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/27
+  rotate: true
+  xy: 1178, 2
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/28
+  rotate: true
+  xy: 1325, 390
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/3
+  rotate: true
+  xy: 2, 2
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/4
+  rotate: true
+  xy: 149, 390
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/5
+  rotate: true
+  xy: 149, 196
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/6
+  rotate: true
+  xy: 149, 2
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/7
+  rotate: true
+  xy: 296, 390
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/8
+  rotate: true
+  xy: 296, 196
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/9
+  rotate: true
+  xy: 296, 2
+  size: 192, 145
+  orig: 192, 145
+  offset: 0, 0
+  index: -1
+images/fire_1
+  rotate: false
+  xy: 1325, 198
+  size: 180, 190
+  orig: 180, 190
+  offset: 0, 0
+  index: -1
+images/fire_2
+  rotate: false
+  xy: 1472, 392
+  size: 180, 190
+  orig: 180, 190
+  offset: 0, 0
+  index: -1
+images/fire_3
+  rotate: false
+  xy: 1325, 6
+  size: 180, 190
+  orig: 180, 190
+  offset: 0, 0
+  index: -1
+images/fire_4
+  rotate: true
+  xy: 1654, 402
+  size: 180, 190
+  orig: 180, 190
+  offset: 0, 0
+  index: -1
+images/fire_5
+  rotate: false
+  xy: 1846, 392
+  size: 180, 190
+  orig: 180, 190
+  offset: 0, 0
+  index: -1
+images/fire_6
+  rotate: true
+  xy: 1654, 220
+  size: 180, 190
+  orig: 180, 190
+  offset: 0, 0
+  index: -1
+images/fire_7
+  rotate: false
+  xy: 1846, 200
+  size: 180, 190
+  orig: 180, 190
+  offset: 0, 0
+  index: -1
+images/fire_8
+  rotate: false
+  xy: 1507, 8
+  size: 180, 190
+  orig: 180, 190
+  offset: 0, 0
+  index: -1
+images/frame
+  rotate: false
+  xy: 1689, 104
+  size: 123, 114
+  orig: 123, 114
+  offset: 0, 0
+  index: -1
+images/icon
+  rotate: true
+  xy: 1814, 75
+  size: 123, 114
+  orig: 123, 114
+  offset: 0, 0
+  index: -1
+images/iconblur
+  rotate: false
+  xy: 1507, 220
+  size: 123, 170
+  orig: 123, 170
+  offset: 0, 0
+  index: -1
+images/text_wild
+  rotate: false
+  xy: 1689, 56
+  size: 111, 46
+  orig: 111, 46
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,27 @@
+
+icon_bar.png
+size: 384,161
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/icon
+  rotate: true
+  xy: 159, 14
+  size: 145, 135
+  orig: 145, 135
+  offset: 0, 0
+  index: -1
+images/icon_text
+  rotate: false
+  xy: 296, 50
+  size: 86, 109
+  orig: 86, 109
+  offset: 0, 0
+  index: -1
+images/iconblur
+  rotate: true
+  xy: 2, 2
+  size: 157, 155
+  orig: 157, 155
+  offset: 0, 0
+  index: -1

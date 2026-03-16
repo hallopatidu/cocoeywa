@@ -1,0 +1,48 @@
+
+icon_bonus.png
+size: 298,289
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/firecircle
+  rotate: false
+  xy: 163, 154
+  size: 133, 133
+  orig: 133, 133
+  offset: 0, 0
+  index: -1
+images/firecircle2
+  rotate: true
+  xy: 133, 2
+  size: 104, 105
+  orig: 104, 105
+  offset: 0, 0
+  index: -1
+images/icon
+  rotate: false
+  xy: 2, 27
+  size: 129, 129
+  orig: 129, 129
+  offset: 0, 0
+  index: -1
+images/icon_text
+  rotate: false
+  xy: 133, 108
+  size: 130, 44
+  orig: 130, 44
+  offset: 0, 0
+  index: -1
+images/iconblur
+  rotate: true
+  xy: 2, 158
+  size: 129, 159
+  orig: 129, 159
+  offset: 0, 0
+  index: -1
+images/shine
+  rotate: false
+  xy: 240, 55
+  size: 51, 51
+  orig: 51, 51
+  offset: 0, 0
+  index: -1

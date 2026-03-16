@@ -1,0 +1,20 @@
+
+icon_orange.png
+size: 296,149
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/icon
+  rotate: false
+  xy: 149, 2
+  size: 145, 145
+  orig: 145, 145
+  offset: 0, 0
+  index: -1
+images/iconblur
+  rotate: false
+  xy: 2, 2
+  size: 145, 145
+  orig: 145, 145
+  offset: 0, 0
+  index: -1

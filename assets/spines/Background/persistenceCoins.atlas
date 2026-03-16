@@ -1,0 +1,41 @@
+
+persistenceCoins.png
+size: 1103,230
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+coinPile2
+  rotate: false
+  xy: 2, 2
+  size: 812, 226
+  orig: 812, 226
+  offset: 0, 0
+  index: -1
+coinPile3
+  rotate: false
+  xy: 816, 108
+  size: 220, 120
+  orig: 220, 120
+  offset: 0, 0
+  index: -1
+light
+  rotate: false
+  xy: 994, 99
+  size: 9, 7
+  orig: 9, 7
+  offset: 0, 0
+  index: -1
+shine
+  rotate: false
+  xy: 816, 8
+  size: 176, 98
+  orig: 176, 98
+  offset: 0, 0
+  index: -1
+topCoinGrp
+  rotate: true
+  xy: 1038, 65
+  size: 163, 63
+  orig: 163, 63
+  offset: 0, 0
+  index: -1

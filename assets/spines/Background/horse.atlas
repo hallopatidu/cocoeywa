@@ -1,0 +1,279 @@
+
+horse.png
+size: 2017,968
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+back_L
+  rotate: true
+  xy: 1790, 475
+  size: 70, 224
+  orig: 76, 225
+  offset: 3, 1
+  index: -1
+body
+  rotate: false
+  xy: 1212, 616
+  size: 188, 350
+  orig: 310, 428
+  offset: 72, 18
+  index: -1
+bodyFlame/00001
+  rotate: true
+  xy: 2, 539
+  size: 427, 240
+  orig: 427, 240
+  offset: 0, 0
+  index: -1
+bodyFlame/00003
+  rotate: true
+  xy: 2, 110
+  size: 427, 240
+  orig: 427, 240
+  offset: 0, 0
+  index: -1
+bodyFlame/00005
+  rotate: true
+  xy: 244, 539
+  size: 427, 240
+  orig: 427, 240
+  offset: 0, 0
+  index: -1
+bodyFlame/00007
+  rotate: true
+  xy: 244, 110
+  size: 427, 240
+  orig: 427, 240
+  offset: 0, 0
+  index: -1
+bodyFlame/00009
+  rotate: true
+  xy: 486, 539
+  size: 427, 240
+  orig: 427, 240
+  offset: 0, 0
+  index: -1
+bodyFlame/00011
+  rotate: true
+  xy: 486, 110
+  size: 427, 240
+  orig: 427, 240
+  offset: 0, 0
+  index: -1
+bodyFlame/00013
+  rotate: true
+  xy: 728, 539
+  size: 427, 240
+  orig: 427, 240
+  offset: 0, 0
+  index: -1
+bodyFlame/00015
+  rotate: true
+  xy: 728, 110
+  size: 427, 240
+  orig: 427, 240
+  offset: 0, 0
+  index: -1
+bodyFlame/00017
+  rotate: true
+  xy: 970, 539
+  size: 427, 240
+  orig: 427, 240
+  offset: 0, 0
+  index: -1
+bodyFlame/00019
+  rotate: true
+  xy: 970, 110
+  size: 427, 240
+  orig: 427, 240
+  offset: 0, 0
+  index: -1
+bodyFlame/00021
+  rotate: false
+  xy: 1416, 726
+  size: 427, 240
+  orig: 427, 240
+  offset: 0, 0
+  index: -1
+bodyFlame/00023
+  rotate: true
+  xy: 1212, 187
+  size: 427, 240
+  orig: 427, 240
+  offset: 0, 0
+  index: -1
+bodyFlame/00024
+  rotate: true
+  xy: 1454, 203
+  size: 427, 240
+  orig: 427, 240
+  offset: 0, 0
+  index: -1
+eyeFlame/eyeFlame-00
+  rotate: false
+  xy: 205, 6
+  size: 155, 102
+  orig: 155, 102
+  offset: 0, 0
+  index: -1
+eyeFlame/eyeFlame-03
+  rotate: false
+  xy: 362, 6
+  size: 155, 102
+  orig: 155, 102
+  offset: 0, 0
+  index: -1
+eyeFlame/eyeFlame-07
+  rotate: false
+  xy: 519, 6
+  size: 155, 102
+  orig: 155, 102
+  offset: 0, 0
+  index: -1
+eyeFlame/eyeFlame-11
+  rotate: false
+  xy: 676, 6
+  size: 155, 102
+  orig: 155, 102
+  offset: 0, 0
+  index: -1
+eyeFlame/eyeFlame-14
+  rotate: false
+  xy: 833, 6
+  size: 155, 102
+  orig: 155, 102
+  offset: 0, 0
+  index: -1
+eyelid
+  rotate: false
+  xy: 1998, 953
+  size: 16, 13
+  orig: 16, 13
+  offset: 0, 0
+  index: -1
+firehair
+  rotate: true
+  xy: 1828, 547
+  size: 177, 187
+  orig: 246, 214
+  offset: 55, 0
+  index: -1
+frontR
+  rotate: false
+  xy: 1416, 3
+  size: 58, 182
+  orig: 74, 183
+  offset: 0, 1
+  index: -1
+front_L
+  rotate: true
+  xy: 1780, 107
+  size: 84, 206
+  orig: 89, 207
+  offset: 0, 1
+  index: -1
+head
+  rotate: true
+  xy: 1845, 899
+  size: 67, 151
+  orig: 100, 188
+  offset: 6, 2
+  index: -1
+headHair
+  rotate: false
+  xy: 1696, 128
+  size: 82, 76
+  orig: 82, 84
+  offset: 0, 0
+  index: -1
+tail1
+  rotate: true
+  xy: 2, 2
+  size: 106, 201
+  orig: 106, 201
+  offset: 0, 0
+  index: -1
+tail2
+  rotate: true
+  xy: 1845, 785
+  size: 112, 116
+  orig: 112, 122
+  offset: 0, 0
+  index: -1
+tailFlame/01-00
+  rotate: true
+  xy: 990, 16
+  size: 92, 211
+  orig: 92, 211
+  offset: 0, 0
+  index: -1
+tailFlame/01-01
+  rotate: true
+  xy: 1203, 16
+  size: 92, 211
+  orig: 92, 211
+  offset: 0, 0
+  index: -1
+tailFlame/01-02
+  rotate: true
+  xy: 1402, 632
+  size: 92, 211
+  orig: 92, 211
+  offset: 0, 0
+  index: -1
+tailFlame/01-03
+  rotate: true
+  xy: 1615, 632
+  size: 92, 211
+  orig: 92, 211
+  offset: 0, 0
+  index: -1
+tailFlame/01-04
+  rotate: false
+  xy: 1696, 419
+  size: 92, 211
+  orig: 92, 211
+  offset: 0, 0
+  index: -1
+tailFlame/01-05
+  rotate: true
+  xy: 1790, 381
+  size: 92, 211
+  orig: 92, 211
+  offset: 0, 0
+  index: -1
+tailFlame/01-06
+  rotate: false
+  xy: 1696, 206
+  size: 92, 211
+  orig: 92, 211
+  offset: 0, 0
+  index: -1
+tailFlame/01-07
+  rotate: true
+  xy: 1790, 287
+  size: 92, 211
+  orig: 92, 211
+  offset: 0, 0
+  index: -1
+tailFlame/01-08
+  rotate: true
+  xy: 1790, 193
+  size: 92, 211
+  orig: 92, 211
+  offset: 0, 0
+  index: -1
+tailFlame/01-09
+  rotate: true
+  xy: 1476, 109
+  size: 92, 211
+  orig: 92, 211
+  offset: 0, 0
+  index: -1
+tailFlame/01-10
+  rotate: true
+  xy: 1476, 15
+  size: 92, 211
+  orig: 92, 211
+  offset: 0, 0
+  index: -1

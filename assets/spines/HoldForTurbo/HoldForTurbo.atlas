@@ -1,0 +1,13 @@
+
+HoldForTurbo.png
+size: 107,107
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/Fadeout
+  rotate: false
+  xy: 2, 2
+  size: 103, 103
+  orig: 103, 103
+  offset: 0, 0
+  index: -1
