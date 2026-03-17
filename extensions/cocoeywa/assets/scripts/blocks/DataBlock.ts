@@ -325,21 +325,6 @@ export class DataBlock<T> extends ReferenceBlock {
                 }else if(Object.prototype.hasOwnProperty.call(obj, prop)){
                     obj[prop] = value;
                 }
-                return true
-
-                // if(Object.prototype.hasOwnProperty.call(obj, prop) && utils.isPrimitiveType(obj[prop])){                
-                if(Object.prototype.hasOwnProperty.call(obj, prop)){
-                    obj[prop] = value;
-                }else{
-                    const token:string = _this.getTokenFromPath(newPath)
-                    if(_this.hasIntentRef(token)){
-                        const intentHandler:EventHandler = _this.getIntentRef(token);
-                        if(intentHandler){
-                            const comp: Component | null = utils.getComponentFromEventHandler(intentHandler)!;
-                            comp[intentHandler.handler] = value
-                        }
-                    }
-                }
                 return true;
             }
         });

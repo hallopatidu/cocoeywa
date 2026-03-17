@@ -1,10 +1,14 @@
-import Pipelineify from "../intermediate/Pipelineify";
-import SpineView from "../widgets/spines/SpineView";
-import { cocoseus_cceditor } from "./cocoseus_cceditor";
+import Pipelineify from "../plugins/Pipelineify";
+import EventHandlerClass from "../plugins/EventHandlerClassify";
+import { cocoseus_cceditor } from "./cocoseus.cceditor";
+import SpineViewify from "../plugins/SpineViewify";
+import PropertyLoadify from "../plugins/PropertyLoadify";
 
 
 export namespace cocoseus_widgets {   
-   
-    export const spineViewify:(() => ClassDecorator) & ClassDecorator = cocoseus_cceditor.makeSmartClassDecorator<string>((constructor) => SpineView(constructor));
+    export const eventify:(() => ClassDecorator) & ClassDecorator = cocoseus_cceditor.makeSmartClassDecorator<string>((constructor) => EventHandlerClass(constructor));
+    export const spineViewify:(() => ClassDecorator) & ClassDecorator = cocoseus_cceditor.makeSmartClassDecorator<string>((constructor) => SpineViewify(constructor));
     export const pipelinify:(() => ClassDecorator) & ClassDecorator = cocoseus_cceditor.makeSmartClassDecorator<string>((constructor) => Pipelineify(constructor));
+    export const propertiesLoadify:(() => ClassDecorator) & ClassDecorator = cocoseus_cceditor.makeSmartClassDecorator<string>((constructor) => PropertyLoadify(constructor));
+    
 }

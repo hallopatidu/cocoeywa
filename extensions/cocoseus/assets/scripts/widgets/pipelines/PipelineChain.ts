@@ -1,5 +1,5 @@
 import { __private, _decorator, Component, Constructor, Enum, js, log } from 'cc';
-import Pipelineify, { PipeDoneType, PipeJointType, PipeTask } from '../../intermediate/Pipelineify';
+import Pipelineify, { PipeDoneType, PipeJointType, PipeTask } from '../../plugins/Pipelineify';
 import { IPipelineChain } from './PipelineType';
 
 const { ccclass, property } = _decorator;

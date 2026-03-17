@@ -5,7 +5,7 @@ import { DEV } from "cc/env";
 
 export namespace cocoseus_utils {
 
-    export namespace string {
+    export namespace strings {
         /**
         * 
         * @param fullPath 

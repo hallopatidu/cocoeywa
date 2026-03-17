@@ -3,7 +3,7 @@ import { _decorator, Constructor, Enum, errorID, js, log, Node, sp, Tween, tween
 
 import { EDITOR } from 'cc/env';
 import { cocoseus } from 'db://cocoseus/scripts/definition/cocoseus';
-import { ISpineView } from './SpineType';
+import { ISpineView } from '../widgets/spines/SpineType';
 
 const { property } = _decorator;
 const { CCClassify, CCEditor } = cocoseus

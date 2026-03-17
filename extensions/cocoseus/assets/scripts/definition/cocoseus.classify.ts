@@ -1,6 +1,6 @@
 import { CCClass, Component, Constructor, error, js } from "cc";
-import { cocoseus_types } from "./cocoseus_types";
-import { cocoseus_cceditor} from "./cocoseus_cceditor";
+import { cocoseus_types } from "./cocoseus.types";
+import { cocoseus_cceditor} from "./cocoseus.cceditor";
 import { DEV } from "cc/env";
 
 const CCEditor = cocoseus_cceditor;
@@ -8,11 +8,9 @@ type DecorateHandlerType = cocoseus_types.DecorateHandlerType;
 type DecoratePropertyType = cocoseus_types.DecoratePropertyType;
 type PropertyStash = cocoseus_types.PropertyStash;
 type ClassStash = cocoseus_types.ClassStash;
-// type SubConstructor<T, TSub> = cocoseus_types.SubConstructor<T, TSub>
 type validateTBase<T> = cocoseus_types.validateTBase<T>;
-
 type SubConstructor<T, TSub> =  new (...args: any[]) => T & TSub;
-type ReturnInheritancified<T, TCtor> = T extends { __props__: unknown, __values__: unknown }? Constructor<T> : TCtor;
+// type ReturnInheritancified<T, TCtor> = T extends { __props__: unknown, __values__: unknown }? Constructor<T> : TCtor;
 
 export namespace cocoseus_classify {
     
@@ -251,5 +249,3 @@ export namespace cocoseus_classify {
 
 }
 
-
-// }

@@ -2,8 +2,8 @@ import { __private, _decorator, Canvas, Component, Constructor, js, Node, NodeEv
 
 
 import { DEV } from 'cc/env';
-import { cocoseus } from '../../definition/cocoseus';
-import { cocoseus_types } from '../../definition/cocoseus_types';
+import { cocoseus } from '../definition/cocoseus';
+import { cocoseus_types } from '../definition/cocoseus.types';
 const { ccclass, property } = _decorator;
 
 interface INodeHierarchyActivify extends Component{}

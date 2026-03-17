@@ -1,6 +1,6 @@
 import { _decorator,  Component, Constructor, Node, warn} from 'cc';
 import { DEV } from 'cc/env';
-import { cocoseus } from '../../definition/cocoseus';
+import { cocoseus } from '../definition/cocoseus';
 const { property } = _decorator;
 
 const EventMethodMapName = Symbol();

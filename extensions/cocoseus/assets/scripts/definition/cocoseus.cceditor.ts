@@ -1,8 +1,8 @@
 
 import { EDITOR } from "cc/env";
-import { cocoseus_types } from "./cocoseus_types";
+import { cocoseus_types } from "./cocoseus.types";
 import { Asset, CCClass, Component, Constructor, Enum, js, _decorator, __private } from "cc";
-import { cocoseus_utils } from "./cocoseus_utils";
+import { cocoseus_utils } from "./cocoseus.utils";
 
 type SimpleAssetInfo = cocoseus_types.SimpleAssetInfo;
 type AssetMeta = cocoseus_types.AssetMeta;
@@ -17,7 +17,7 @@ type DecoratePropertyType = cocoseus_types.DecoratePropertyType;
 type PropertyType = cocoseus_types.PropertyType;
 
 const {property} = _decorator;
-const StringUtil = cocoseus_utils.string;
+const StringUtil = cocoseus_utils.strings;
 const DELIMETER:string = cocoseus_types.DELIMETER;
 const CACHE_KEY:string = cocoseus_types.CACHE_KEY;
 

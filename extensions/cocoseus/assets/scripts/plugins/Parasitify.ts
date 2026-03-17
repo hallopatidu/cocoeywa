@@ -1,7 +1,7 @@
 import { Component, Constructor, error, js, warn, _decorator } from "cc";
 import { DEV, EDITOR } from "cc/env";
-import { cocoseus } from "../../definition/cocoseus";
-import { cocoseus_classify } from "../../definition/cocoseus_classify";
+import { cocoseus } from "../definition/cocoseus";
+import { cocoseus_classify } from "../definition/cocoseus.classify";
 
 const { property } = _decorator;
 const ParasitifyName:string = 'Parasitify';
@@ -48,68 +48,68 @@ export function override(target:any, propertyKey: string, descriptor: PropertyDe
 //     }else{
 
 export default cocoseus.CCClassify<IParasitified>(function Parasitify<TBase,TSuper>(base:Constructor<TBase>, superConstructor?:Constructor<TSuper>):Constructor<TBase & IParasitified<TSuper>>{
-        class Parasitified extends (base as unknown as Constructor<Component>) implements IParasitified<TSuper>{
-            @property({
-                displayName: 'Extends',        
-                readonly:true
-            })
-            get superName():string{
-                return this._$superName
-            }
-        
-            protected _$id:number = 0;
-            protected _$host:TSuper = null;
-            protected _$super:TSuper = null;
-            protected _$superName:string = '';
-
-            private _superProxy:any;
-            private __isFirstParasite:boolean = false;
-
-            get host():TSuper{
-                return this._$host;
-            }
-
-            get super():TSuper {      
-                if(!this._$super) error('Do not init super !');
-                if(!this._superProxy){
-                    this._superProxy = new Proxy(this, {  
-                        get: (target:any, prop:string) => getParasiteSuperMethod(target, prop),           
-                        set: (target:any, prop:string, value:any) =>{                    
-                            return setParasiteSuperMethod(target, prop, value)
-                        }
-                    })
-                }
-                return this._superProxy as TSuper
-            };
-
-            public get internalOnLoad (): (() => void) | undefined {
-                excuteHierarchyOverridding(this);
-                return super['internalOnLoad']
-            }
-
-            
-            public get internalOnDestroy (): (() => void) | undefined {
-                if(this.__isFirstParasite){
-                    const listOfOverrideMethods:Set<string> = this[OverrideMethodNameMap];
-                    listOfOverrideMethods && listOfOverrideMethods.forEach((methodName:string)=>{
-                        const originMethodName:string = GetOriginMethodName(methodName);
-                        const hostDesc:PropertyDescriptor = js.getPropertyDescriptor(this, originMethodName);
-                        Object.defineProperty(this._$host, methodName, hostDesc);
-                        delete this[originMethodName]
-                    })
-                }
-                return super['internalOnLoad'];
-            }
-
-            // @override
-            // protected onDestroy(): void {
-            //     EDITOR && globalThis.Editor.Message.request('scene', 'remove-component', { 
-            //         uuid: this.uuid,
-            //     });
-            // }
+    class Parasitified extends (base as unknown as Constructor<Component>) implements IParasitified<TSuper>{
+        @property({
+            displayName: 'Extends',        
+            readonly:true
+        })
+        get superName():string{
+            return this._$superName
         }
+    
+        protected _$id:number = 0;
+        protected _$host:TSuper = null;
+        protected _$super:TSuper = null;
+        protected _$superName:string = '';
+
+        private _superProxy:any;
+        private __isFirstParasite:boolean = false;
+
+        get host():TSuper{
+            return this._$host;
+        }
+
+        get super():TSuper {      
+            if(!this._$super) error('Do not init super !');
+            if(!this._superProxy){
+                this._superProxy = new Proxy(this, {  
+                    get: (target:any, prop:string) => getParasiteSuperMethod(target, prop),           
+                    set: (target:any, prop:string, value:any) =>{                    
+                        return setParasiteSuperMethod(target, prop, value)
+                    }
+                })
+            }
+            return this._superProxy as TSuper
+        };
+
+        public get internalOnLoad (): (() => void) | undefined {
+            excuteHierarchyOverridding(this);
+            return super['internalOnLoad']
+        }
+
         
-        return Parasitified as unknown as Constructor<TBase & IParasitified<TSuper>>;
+        public get internalOnDestroy (): (() => void) | undefined {
+            if(this.__isFirstParasite){
+                const listOfOverrideMethods:Set<string> = this[OverrideMethodNameMap];
+                listOfOverrideMethods && listOfOverrideMethods.forEach((methodName:string)=>{
+                    const originMethodName:string = GetOriginMethodName(methodName);
+                    const hostDesc:PropertyDescriptor = js.getPropertyDescriptor(this, originMethodName);
+                    Object.defineProperty(this._$host, methodName, hostDesc);
+                    delete this[originMethodName]
+                })
+            }
+            return super['internalOnLoad'];
+        }
+
+        // @override
+        // protected onDestroy(): void {
+        //     EDITOR && globalThis.Editor.Message.request('scene', 'remove-component', { 
+        //         uuid: this.uuid,
+        //     });
+        // }
+    }
+    
+    return Parasitified as unknown as Constructor<TBase & IParasitified<TSuper>>;
 
 }, ParasitifyName)
 
