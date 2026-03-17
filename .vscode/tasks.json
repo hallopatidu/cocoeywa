@@ -13,6 +13,56 @@
             "presentation": {
                 "reveal": "always"
             }
+        },
+        {
+            "label": "update-launch",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "${workspaceFolder}/.vscode/update_launch_url.js"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Auto build extensions",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "${workspaceFolder}/.vscode/watch_extensions.js"
+            ],
+            "isBackground": true,
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": {
+                "owner": "custom",
+                "pattern": {
+                    "regexp": "^$"
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Watching",
+                    "endsPattern": "Waiting for file changes"
+                }
+            }
+        },
+        {
+            "label": "Check extensions dependencies",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "${workspaceFolder}/.vscode/check_extensions_deps.js"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
         }
     ]
 }

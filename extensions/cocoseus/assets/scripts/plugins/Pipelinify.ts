@@ -1,9 +1,9 @@
 import { _decorator, AssetManager, Component, Constructor, warn } from 'cc';
-import { cocoseus } from '../definition/cocoseus';
+import { cocoseus_classify } from '../definition/cocoseus.classify';
 
-// const { ccclass, property } = _decorator;
+const {CCClassify} = cocoseus_classify
 
-export const PipelineifyClassName:string = "Pipelineify";
+export const PipelinifiedClassName:string = "Pipelineify";
 export interface IPipelinify {
     insert (func: PipeJointType, index: number): IPipelinify
     append (func: PipeJointType): IPipelinify
@@ -33,7 +33,7 @@ export interface ITaskOption {
 }
 
 
-export default cocoseus.CCClassify<IPipelinify>(function pipelinify<TBase>(base:Constructor<TBase>):Constructor<TBase & IPipelinify>{
+export default CCClassify<IPipelinify>(function pipelinify<TBase>(base:Constructor<TBase>):Constructor<TBase & IPipelinify>{
     /**
      * @class Pipelineified
      * @extends Component
@@ -247,4 +247,4 @@ export default cocoseus.CCClassify<IPipelinify>(function pipelinify<TBase>(base:
     }
 
     return Pipeline_ified as unknown as Constructor<TBase & IPipelinify>;
-}, PipelineifyClassName)
+}, PipelinifiedClassName)

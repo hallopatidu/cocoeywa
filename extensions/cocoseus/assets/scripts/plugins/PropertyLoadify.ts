@@ -18,9 +18,10 @@ export const PropertyLoadifiedClassName:string = 'PropertyLoadifiedClass';
 
 type SimpleAssetInfo = cocoseus_types.SimpleAssetInfo;
 
+const { CCClassify } = cocoseus_classify;
 const DecoratedTag = '__$loaded';
 const RemoteRouterReg:RegExp = /^(remote)/g;
-const CCEditor = cocoseus.CCEditor;
+const CCEditor = cocoseus_cceditor;
 
 // 
 export type EmbedAsset = Asset|Node|Component;
@@ -42,7 +43,7 @@ export interface IPropertyLoadified extends Component{
 }
 
 
-export default cocoseus.CCClassify<IPropertyLoadified>(function PropertyLoadify <TBase>(base:Constructor<TBase>, baseUrl:string, version:string):Constructor<TBase & IPropertyLoadified>{
+export default CCClassify<IPropertyLoadified>(function PropertyLoadify <TBase>(base:Constructor<TBase>, baseUrl:string, version:string):Constructor<TBase & IPropertyLoadified>{
     // 
     const Version:string = version?version:'';
     const BaseURL:string = (baseUrl && !RemoteRouterReg.test(baseUrl)) ? (baseUrl + '/remote/') : '';

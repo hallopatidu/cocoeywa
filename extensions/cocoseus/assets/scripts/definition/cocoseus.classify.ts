@@ -89,7 +89,7 @@ export namespace cocoseus_classify {
      * @param injectorName 
      * @returns 
      */
-    export function make<TClass>(injectorMethod:<TBase>(...args:(Constructor<TBase>|string|number)[])=>Constructor<TBase & TClass>, injectorName:string = injectorMethod.name ):(<TBase>(base:validateTBase<TBase>, ...args:(string|number)[])=>SubConstructor<TBase, TClass>){
+    export function CCClassify<TClass>(injectorMethod:<TBase>(...args:(Constructor<TBase>|string|number)[])=>Constructor<TBase & TClass>, injectorName:string = injectorMethod.name ):(<TBase>(base:validateTBase<TBase>, ...args:(string|number)[])=>SubConstructor<TBase, TClass>){
         return function<TBase>(base:validateTBase<TBase>):SubConstructor<TBase, TClass>{
             if(hadInjectorImplemented(base as Constructor, injectorName)) {
                 return base as unknown as SubConstructor<TBase, TClass>;

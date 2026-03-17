@@ -1,8 +1,8 @@
 import { Component, Constructor, error, js, warn, _decorator } from "cc";
 import { DEV, EDITOR } from "cc/env";
-import { cocoseus } from "../definition/cocoseus";
 import { cocoseus_classify } from "../definition/cocoseus.classify";
 
+const {CCClassify} = cocoseus_classify
 const { property } = _decorator;
 const ParasitifyName:string = 'Parasitify';
 
@@ -47,7 +47,7 @@ export function override(target:any, propertyKey: string, descriptor: PropertyDe
 //         return base as unknown as any
 //     }else{
 
-export default cocoseus.CCClassify<IParasitified>(function Parasitify<TBase,TSuper>(base:Constructor<TBase>, superConstructor?:Constructor<TSuper>):Constructor<TBase & IParasitified<TSuper>>{
+export default CCClassify<IParasitified>(function Parasitify<TBase,TSuper>(base:Constructor<TBase>, superConstructor?:Constructor<TSuper>):Constructor<TBase & IParasitified<TSuper>>{
     class Parasitified extends (base as unknown as Constructor<Component>) implements IParasitified<TSuper>{
         @property({
             displayName: 'Extends',        

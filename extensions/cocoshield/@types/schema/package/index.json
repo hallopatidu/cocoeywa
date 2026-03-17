@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "description": "Extension definition file",
+    "properties": {
+        "author": {
+            "type": "string",
+            "description": "Author",
+            "default": "coco.magic"
+        },
+        "contributions": {
+            "$ref": "./contributions/index.json"
+        },
+        "dependencies": {
+            "type": "object",
+            "description": "Dependencies required for publishing"
+        },
+        "description": {
+            "type": "string",
+            "description": "Brief introduction of the key features and uses of the extension, supporting i18n"
+        },
+        "devDependencies": {
+            "type": "object",
+            "description": "Dependencies required for development"
+        },
+        "editor": {
+            "type": "string",
+            "description": "Supported Cocos Creator editor version, supporting semver format"
+        },
+        "main": {
+            "type": "string",
+            "description": "Entry function",
+            "default": "./dist/index.js"
+        },
+        "name": {
+            "type": "string",
+            "description": "Cannot start with _ or., cannot contain uppercase letters, and cannot contain URL illegal characters such as.,'and,",
+            "default": "Custom Extension"
+        },
+        "package_version": {
+            "type": "number",
+            "description": "Extension system reserved version number",
+            "default": 2
+        },
+        "panels": {
+            "$ref": "./base/panels.json"
+        },
+        "scripts": {
+            "type": "object",
+            "description": "NPM scripts"
+        },
+        "version": {
+            "type": "string",
+            "description": "Version number string",
+            "default": "1.0.0"
+        }
+    },
+    "required": [
+        "author",
+        "name",
+        "package_version",
+        "version"
+    ]
+}

@@ -1,5 +1,6 @@
 import { Component, Constructor, log } from "cc";
-import { cocoseus } from "../definition/cocoseus";
+import { cocoseus_classify } from "../definition/cocoseus.classify";
+const { CCClassify } = cocoseus_classify;
 
 export interface IAsyncProcessified extends Component {
     wait<TNextData = unknown>(token?:number):Promise<TNextData>
@@ -7,8 +8,9 @@ export interface IAsyncProcessified extends Component {
     end(token?:number, data?:any):void
     isProgressing(token?:number):boolean
 }
+
 export const AsyncProcessifiedClassName:string = "AsyncProcessifiedClass";
-export default cocoseus.CCClassify<IAsyncProcessified>(function asyncProcessify<TBase=Component>(base:Constructor<TBase&IAsyncProcessified>):Constructor<TBase & IAsyncProcessified>{
+export default CCClassify<IAsyncProcessified>(function asyncProcessify<TBase=Component>(base:Constructor<TBase&IAsyncProcessified>):Constructor<TBase & IAsyncProcessified>{
     class AsyncProcessified extends (base as unknown as Constructor<Component>) {            
         private waitingTasks: Map<number, Function[]> = new Map();
         private waitingTokens:Set<number> = new Set<number>();

@@ -4,7 +4,9 @@ import { __private, _decorator, Canvas, Component, Constructor, js, Node, NodeEv
 import { DEV } from 'cc/env';
 import { cocoseus } from '../definition/cocoseus';
 import { cocoseus_types } from '../definition/cocoseus.types';
+import { cocoseus_classify } from '../definition/cocoseus.classify';
 const { ccclass, property } = _decorator;
+const {CCClassify} = cocoseus_classify
 
 interface INodeHierarchyActivify extends Component{}
 interface INodeBranchActivify extends INodeHierarchyActivify{
@@ -22,7 +24,7 @@ const NodeHierarchyPlugin = Symbol();
  * Additional functionality.
  * 
  */
-export const NodeHierarchyActivify = cocoseus.CCClassify<INodeHierarchyActivify>(function nodeHierarchyActivify<TBase>(base:Constructor<TBase>):SubConstructor<TBase, INodeHierarchyActivify>{
+export const NodeHierarchyActivify = CCClassify<INodeHierarchyActivify>(function nodeHierarchyActivify<TBase>(base:Constructor<TBase>):SubConstructor<TBase, INodeHierarchyActivify>{
     const NodeTag = Symbol();
     
     // 
@@ -91,7 +93,7 @@ export const NodeHierarchyActivify = cocoseus.CCClassify<INodeHierarchyActivify>
  * Upgrade the node's active function to allow activation even when its parent node is deactivated.
  * 
  */
-export const NodeBranchActivify = cocoseus.CCClassify<INodeBranchActivify>(function nodeBranchActivify<TBase>(base:Constructor<TBase>):SubConstructor<TBase, INodeBranchActivify>{
+export const NodeBranchActivify = CCClassify<INodeBranchActivify>(function nodeBranchActivify<TBase>(base:Constructor<TBase>):SubConstructor<TBase, INodeBranchActivify>{
     const RestoreActivedNodeHandler = Symbol()//.toString();
     // 
     if(DEV){
@@ -167,7 +169,7 @@ export const NodeBranchActivify = cocoseus.CCClassify<INodeBranchActivify>(funct
  * Whenever activated, the component will bring the attached node to the top of the display.
  * 
  */
-export const NodeOnTopActivify = cocoseus.CCClassify<INodeOnTopActivify>(function activeOnTopOfGame<TBase>(base:Constructor<TBase>):Constructor<TBase & INodeOnTopActivify>{
+export const NodeOnTopActivify = CCClassify<INodeOnTopActivify>(function activeOnTopOfGame<TBase>(base:Constructor<TBase>):Constructor<TBase & INodeOnTopActivify>{
     if(!js.isChildClassOf(base, Component)){
         throw new Error('Just only use for subclass of Component')
     }

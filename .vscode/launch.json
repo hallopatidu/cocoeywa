@@ -5,7 +5,8 @@
             "type": "chrome",
             "request": "launch",
             "name": "Cocos Creator Launch Chrome against localhost",
-            "url": "http://localhost:7456",
+            "preLaunchTask": "update-launch",
+            "url": "http://localhost:7456?data=eyJhcGkiOiJodHRwczovL2Rldi1wbGF5LnJveWFsZWRnZS5pby9hcGkiLCJjdXJyZW5jeSI6IlVTRCIsImVudiI6ImRldiIsImdhbWVDb2RlIjoic2xfMzVfZmlyZV9ob3JzZV83NzciLCJnYW1lSWQiOjAsImlwIjoiMjIyLjI1Mi4xMC44IiwibGFuZ3VhZ2UiOiJlbiIsIm9wZXJhdG9yIjoicmV0a24iLCJwbGF5bW9kZSI6ImZyZWUiLCJyZXR1cm5VUkwiOiJodHRwczovL2Rldi5yb3lhbGVkZ2UuaW8iLCJzZXJ2ZXIiOiJodHRwczovL2Rldi1wbGF5LnJveWFsZWRnZS5pbyIsInNpZ25hdHVyZSI6ImVjYmYzN2ZjZmZlYTFkMDRlNGEyZDE1ZDk4MzA0ZmQ4NGYyOWU1YjRlMDVjNGY3NjAwNzNlYzhlODgyNTcwYjMiLCJzdGF0aWNVcmwiOiJodHRwczovL2Rldi1wbGF5LnJveWFsZWRnZS5pby9zdGF0aWMvc2xfMzVfZmlyZV9ob3JzZV83NzciLCJzdWJwYXRoIjoiL3NsXzM1X2ZpcmVfaG9yc2VfNzc3L2FwaSIsInRpbWVzdGFtcCI6IjE3NzM3MzUyMDcyNTQiLCJ0b2tlbiI6ImVkY2RmNTcwLWFhNTctNGUyNy1hYzM5LTBjNDc2NDMzOWE5MyIsInVzZXJuYW1lIjoiZ2RwNzE5NiIsInpvbmUiOiJhcGFjIn0=",
             "webRoot": "${workspaceFolder}"
         }
     ]

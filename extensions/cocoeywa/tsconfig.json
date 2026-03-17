@@ -3,7 +3,11 @@
     "compilerOptions": {
         "outDir": "./dist",
         "rootDir": "./source",
-        "types": ["node"]
+        "types": [
+            "node"
+        ]
     },
-    "exclude": ["./assets"]
+    "exclude": [
+        "./assets"
+    ]
 }

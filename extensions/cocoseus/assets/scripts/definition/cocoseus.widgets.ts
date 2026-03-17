@@ -1,4 +1,4 @@
-import Pipelineify from "../plugins/Pipelineify";
+import Pipelineify from "../plugins/Pipelinify";
 import EventHandlerClass from "../plugins/EventHandlerClassify";
 import { cocoseus_cceditor } from "./cocoseus.cceditor";
 import SpineViewify from "../plugins/SpineViewify";

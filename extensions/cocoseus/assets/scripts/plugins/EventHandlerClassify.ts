@@ -1,7 +1,8 @@
 import { _decorator,  Component, Constructor, Node, warn} from 'cc';
 import { DEV } from 'cc/env';
-import { cocoseus } from '../definition/cocoseus';
+import { cocoseus_classify } from '../definition/cocoseus.classify';
 const { property } = _decorator;
+const {CCClassify} = cocoseus_classify
 
 const EventMethodMapName = Symbol();
 const AddAllRegisterEvents = Symbol();
@@ -15,7 +16,7 @@ export interface IEventHandlerClass extends Component {
  * 
  */
 export const EventFunctionHandlerClassName:string = "EventHandlerClass";
-export default cocoseus.CCClassify<IEventHandlerClass>(function eventFunctionHandler<TBase=Component>(base:Constructor<TBase&IEventHandlerClass>):Constructor<TBase & IEventHandlerClass>{
+export default CCClassify<IEventHandlerClass>(function eventFunctionHandler<TBase=Component>(base:Constructor<TBase&IEventHandlerClass>):Constructor<TBase & IEventHandlerClass>{
     class EventHandlerClass extends (base as unknown as Constructor<IEventHandlerClass>)implements IEventHandlerClass{
 
         protected _eventList:Set<string> = null;

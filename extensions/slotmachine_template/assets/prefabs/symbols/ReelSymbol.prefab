@@ -170,7 +170,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "07420d9f-efce-453d-a12e-819fefb7ea66@f9941",
+      "__uuid__": "81221787-13b4-465e-80f2-ab9c8f07ecec@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -379,7 +379,7 @@
       "__id__": 17
     },
     "localSymbolIndex": 1,
-    "type": 3,
+    "type": 1,
     "symbolInfos": [
       {
         "__id__": 18
@@ -553,7 +553,7 @@
     "__type__": "SpineSymbolInfo",
     "enumType": 9,
     "anim": {
-      "__uuid__": "8fca8ccc-2951-41d8-83d1-4b7812045acc",
+      "__uuid__": "584cce23-1778-4e01-93fa-a37b76ac251e",
       "__expectedType__": "sp.SkeletonData"
     }
   },
@@ -561,7 +561,7 @@
     "__type__": "SpineSymbolInfo",
     "enumType": 11,
     "anim": {
-      "__uuid__": "ebc1f7ff-8341-4af3-b253-6ac496032719",
+      "__uuid__": "3d7d39cf-f3e3-4ab0-bed6-60f3162d593a",
       "__expectedType__": "sp.SkeletonData"
     }
   },
@@ -569,7 +569,7 @@
     "__type__": "SpineSymbolInfo",
     "enumType": 12,
     "anim": {
-      "__uuid__": "7c22ca24-2010-4130-90b7-e3c40276a41d",
+      "__uuid__": "3bc55bc8-ab0a-4514-8a7c-e6977ce83f3f",
       "__expectedType__": "sp.SkeletonData"
     }
   },

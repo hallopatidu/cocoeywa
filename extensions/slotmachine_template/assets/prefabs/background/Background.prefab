@@ -306,7 +306,7 @@
       "a": 255
     },
     "_skeletonData": {
-      "__uuid__": "990f9c09-8c7c-4a28-95f9-e196ca18f1f5",
+      "__uuid__": "d1054b85-106d-4e77-931d-7b596d5a6839",
       "__expectedType__": "sp.SkeletonData"
     },
     "defaultSkin": "default",
@@ -442,11 +442,11 @@
       "a": 255
     },
     "_skeletonData": {
-      "__uuid__": "0d1ddfcf-1863-476b-9190-7bb4df1fbf87",
+      "__uuid__": "9c306d4b-25c9-411f-95a0-251568bb226d",
       "__expectedType__": "sp.SkeletonData"
     },
     "defaultSkin": "default",
-    "defaultAnimation": "run",
+    "defaultAnimation": "",
     "_premultipliedAlpha": true,
     "_timeScale": 1,
     "_preCacheMode": 0,
@@ -578,7 +578,7 @@
       "a": 255
     },
     "_skeletonData": {
-      "__uuid__": "fbe6148e-b1bf-42ca-b371-66588b6832c1",
+      "__uuid__": "2b4386e4-1af5-4b2f-b2bf-d14617e4b1ef",
       "__expectedType__": "sp.SkeletonData"
     },
     "defaultSkin": "default",

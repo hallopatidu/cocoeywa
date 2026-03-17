@@ -2,11 +2,15 @@ import { _decorator, Constructor, Enum, errorID, js, log, Node, sp, Tween, tween
 
 
 import { EDITOR } from 'cc/env';
-import { cocoseus } from 'db://cocoseus/scripts/definition/cocoseus';
 import { ISpineView } from '../widgets/spines/SpineType';
+import { cocoseus_cceditor } from '../definition/cocoseus.cceditor';
+import { cocoseus_classify } from '../definition/cocoseus.classify';
 
 const { property } = _decorator;
-const { CCClassify, CCEditor } = cocoseus
+const { CCClassify } = cocoseus_classify;
+const CCEditor = cocoseus_cceditor
+
+// const { CCClassify, CCEditor } = cocoseus
 // const {tween} = CocoTween;
 
 export const SpineViewClassName:string = "SpineView";

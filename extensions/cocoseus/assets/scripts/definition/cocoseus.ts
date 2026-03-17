@@ -6,7 +6,7 @@ import { cocoseus_widgets } from "./cocoseus.widgets";
 // const CCEditor = cocoseus_cceditor;
 
 export namespace cocoseus {
-    export const CCClassify = cocoseus_classify.make;
+    export const CCClassify = cocoseus_classify.CCClassify;    
     export const utils = cocoseus_utils;
     export const CCEditor = cocoseus_cceditor;
 
