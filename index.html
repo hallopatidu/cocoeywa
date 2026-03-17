@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OpenCV.js Đặt Ảnh Khớp Vị Trí</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            background: #222;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        canvas {
+            border: 1px solid #555;
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            background: #000;
+            margin-top: 10px;
+        }
+
+        .controls {
+            margin: 0 auto 20px auto;
+            padding: 20px;
+            background: #333;
+            border-radius: 8px;
+            max-width: 900px;
+        }
+
+        .control-group {
+            text-align: left;
+            background: #444;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border-left: 5px solid #007bff;
+        }
+
+        .control-group input[type="file"] {
+            margin: 5px 0 10px 0;
+            display: block;
+        }
+
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+            color: #ccc;
+        }
+
+        #runBtn {
+            background: #28a745;
+            font-size: 16px;
+            padding: 12px 24px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        #runBtn:hover:not(:disabled) {
+            background: #218838;
+        }
+
+        #status {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .col {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #333;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .col p {
+            margin: 0;
+            font-weight: bold;
+            color: #ffeb3b;
+        }
+
+        /* Hiệu ứng nhấp nháy vùng kết quả */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(40, 167, 69, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+            }
+        }
+
+        .found {
+            animation: pulse 2s infinite;
+            border-color: #28a745 !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Đặt bức ảnh nhỏ vào vị trí khớp trên Background</h2>
+    <p>Thuật toán sẽ tìm kiếm đặc trưng hình ảnh (ORB), sau đó tính toán góc xoay/tỷ lệ để đặt chính xác ảnh nhỏ lên nền
+        lớn.</p>
+
+    <div class="controls">
+        <p>Trạng thái: <span id="status">Đang tải OpenCV.js... Vui lòng chờ.</span></p>
+
+        <div class="control-group">
+            <strong>Upload ảnh để thử nghiệm:</strong><br>
+            <div style="margin-top: 10px;">
+                <label>Ảnh Nhỏ (Vật thể cần đặt):</label>
+                <input type="file" id="fileSmall" accept="image/*">
+            </div>
+            <div>
+                <label>Ảnh Background (Chứa vật thể đó):</label>
+                <input type="file" id="fileBG" accept="image/*">
+            </div>
+        </div>
+
+        <button id="runBtn" disabled>Tìm & Đặt Ảnh (Process)</button>
+    </div>
+
+    <div class="container">
+        <div class="col">
+            <p>Ảnh Nhỏ</p>
+            <canvas id="canvasSmall"></canvas>
+        </div>
+        <div class="col">
+            <p>Ảnh Background</p>
+            <canvas id="canvasBG"></canvas>
+        </div>
+        <div class="col" style="flex: 2;">
+            <p>Kết quả: Ảnh nhỏ được đặt vào background</p>
+            <canvas id="canvasResult"></canvas>
+        </div>
+    </div>
+
+    <script async src="https://docs.opencv.org/4.x/opencv.js" onload="onOpenCvReady();"></script>
+
+    <script>
+        const status = document.getElementById('status');
+        const runBtn = document.getElementById('runBtn');
+        const fileSmall = document.getElementById('fileSmall');
+        const fileBG = document.getElementById('fileBG');
+        const canvasRes = document.getElementById('canvasResult');
+
+        function onOpenCvReady() {
+            status.innerText = 'OpenCV.js đã sẵn sàng! Bạn có thể chọn ảnh để thử trực tiếp.';
+            runBtn.disabled = false;
+            setupDemoImages();
+        }
+
+        // Tạo một ví dụ Demo mặc định
+        function setupDemoImages() {
+            const ctxBG = document.getElementById('canvasBG').getContext('2d');
+            const ctxSm = document.getElementById('canvasSmall').getContext('2d');
+
+            // BG: scene mô phỏng
+            ctxBG.canvas.width = 600; ctxBG.canvas.height = 400;
+            ctxBG.fillStyle = '#444'; ctxBG.fillRect(0, 0, 600, 400);
+
+            // Vẽ các khối gây nhiễu
+            ctxBG.fillStyle = '#555'; ctxBG.fillRect(50, 50, 100, 100);
+            ctxBG.fillStyle = '#666'; ctxBG.beginPath(); ctxBG.arc(500, 100, 50, 0, 2 * Math.PI); ctxBG.fill();
+
+            // Vẽ khối mục tiêu (bị xoay & thu nhỏ môt chút)
+            ctxBG.save();
+            ctxBG.translate(350, 250);
+            ctxBG.rotate(30 * Math.PI / 180); // Xoay 30 độ
+            ctxBG.scale(0.8, 0.8);
+
+            // Draw Target Gradient Box
+            let grd = ctxBG.createLinearGradient(-75, -75, 75, 75);
+            grd.addColorStop(0, "red");
+            grd.addColorStop(1, "blue");
+            ctxBG.fillStyle = grd;
+            ctxBG.fillRect(-75, -75, 150, 150);
+
+            // Vẽ thêm 4 ô vuông nhỏ ở 4 góc để tạo đặc trưng góc siêu rõ cho ORB
+            ctxBG.fillStyle = 'white';
+            ctxBG.fillRect(-70, -70, 20, 20);
+            ctxBG.fillRect(50, -70, 20, 20);
+            ctxBG.fillRect(-70, 50, 20, 20);
+            ctxBG.fillRect(50, 50, 20, 20);
+
+            ctxBG.fillStyle = 'white';
+            ctxBG.font = '24px Arial';
+            ctxBG.textAlign = "center";
+            ctxBG.textBaseline = "middle";
+            ctxBG.fillText("TARGET", 0, -20);
+            ctxBG.fillText("IMAGE", 0, 20);
+            ctxBG.restore();
+
+            // Ảnh nhỏ (Bản gốc thẳng đứng, kích thước chuẩn)
+            ctxSm.canvas.width = 150; ctxSm.canvas.height = 150;
+            let grdSm = ctxSm.createLinearGradient(0, 0, 150, 150);
+            grdSm.addColorStop(0, "red");
+            grdSm.addColorStop(1, "blue");
+            ctxSm.fillStyle = grdSm;
+            ctxSm.fillRect(0, 0, 150, 150);
+
+            // 4 ô vuông tạo góc đặc trưng
+            ctxSm.fillStyle = 'white';
+            ctxSm.fillRect(5, 5, 20, 20);
+            ctxSm.fillRect(125, 5, 20, 20);
+            ctxSm.fillRect(5, 125, 20, 20);
+            ctxSm.fillRect(125, 125, 20, 20);
+
+            ctxSm.fillStyle = 'white';
+            ctxSm.font = '24px Arial';
+            ctxSm.textAlign = "center";
+            ctxSm.textBaseline = "middle";
+            ctxSm.fillText("TARGET", 75, 55);
+            ctxSm.fillText("IMAGE", 75, 95);
+
+            canvasRes.classList.remove('found');
+            canvasRes.getContext('2d').clearRect(0, 0, canvasRes.width, canvasRes.height);
+        }
+
+        function drawImageToCanvas(img, canvasId) {
+            const canvas = document.getElementById(canvasId);
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            canvasRes.classList.remove('found');
+        }
+
+        function loadImageFromFile(file, canvasId) {
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                let img = new Image();
+                img.onload = () => { drawImageToCanvas(img, canvasId); };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        fileSmall.onchange = (e) => {
+            loadImageFromFile(e.target.files[0], 'canvasSmall');
+            status.innerText = 'Đã tải Ảnh Template mới.';
+        };
+
+        fileBG.onchange = (e) => {
+            loadImageFromFile(e.target.files[0], 'canvasBG');
+            status.innerText = 'Đã tải Ảnh Background mới.';
+        };
+
+        runBtn.onclick = () => {
+            status.innerText = 'Đang phân tích và khớp vị trí...';
+            canvasRes.classList.remove('found');
+            setTimeout(processAndOverlay, 50);
+        };
+
+        function processAndOverlay() {
+            try {
+                let src = cv.imread('canvasSmall');
+                let dst = cv.imread('canvasBG');
+
+                let graySrc = new cv.Mat();
+                let grayDst = new cv.Mat();
+                cv.cvtColor(src, graySrc, cv.COLOR_RGBA2GRAY);
+                cv.cvtColor(dst, grayDst, cv.COLOR_RGBA2GRAY);
+
+                // SURF/SIFT tốt hơn nhưng nặng, dùng ORB với nhiều features hơn
+                let orb = new cv.ORB(1000);
+                let kp1 = new cv.KeyPointVector();
+                let kp2 = new cv.KeyPointVector();
+                let des1 = new cv.Mat();
+                let des2 = new cv.Mat();
+
+                orb.detectAndCompute(graySrc, new cv.Mat(), kp1, des1);
+                orb.detectAndCompute(grayDst, new cv.Mat(), kp2, des2);
+
+                if (kp1.size() === 0 || kp2.size() === 0) {
+                    throw new Error("Không thể trích xuất đặc trưng hình ảnh.");
+                }
+
+                // Matcher
+                let bf = new cv.BFMatcher(cv.NORM_HAMMING, true);
+                let matches = new cv.DMatchVector();
+                bf.match(des1, des2, matches);
+
+                // Lọc match tốt
+                let matchesArray = [];
+                for (let i = 0; i < matches.size(); i++) {
+                    matchesArray.push(matches.get(i));
+                }
+                matchesArray.sort((a, b) => a.distance - b.distance);
+                const NUM_GOOD = Math.max(10, Math.floor(matchesArray.length * 0.15));
+                let goodMatches = matchesArray.slice(0, NUM_GOOD);
+
+                if (goodMatches.length < 4) {
+                    throw new Error("Không đủ điểm giống nhau để định vị.");
+                }
+
+                let srcPtsData = [];
+                let dstPtsData = [];
+                for (let i = 0; i < goodMatches.length; i++) {
+                    let m = goodMatches[i];
+                    srcPtsData.push(kp1.get(m.queryIdx).pt.x, kp1.get(m.queryIdx).pt.y);
+                    dstPtsData.push(kp2.get(m.trainIdx).pt.x, kp2.get(m.trainIdx).pt.y);
+                }
+
+                let srcMat = cv.matFromArray(srcPtsData.length / 2, 1, cv.CV_32FC2, srcPtsData);
+                let dstMat = cv.matFromArray(dstPtsData.length / 2, 1, cv.CV_32FC2, dstPtsData);
+
+                // Tính ma trận Transform (Homography 3x3) sau đó loại bỏ phần phối cảnh (Z-axis)
+                let M_pano = cv.findHomography(srcMat, dstMat, cv.RANSAC, 5.0);
+                if (M_pano.empty()) {
+                    throw new Error("Không tính được ma trận góc xoay/tỷ lệ 2D.");
+                }
+
+                // --------- BƯỚC ĐẶT ẢNH NHỎ LÊN BACKGROUND ---------
+
+                // 1. Vẽ toàn bộ Background gốc sang Result Canvas
+                cv.imshow('canvasResult', dst);
+
+                // 2. Chuyển đổi tọa độ 4 góc của ảnh nhỏ sang Background để lấy bounding box
+                let obj_corners = cv.matFromArray(4, 1, cv.CV_32FC2, [
+                    0, 0,
+                    src.cols, 0,
+                    src.cols, src.rows,
+                    0, src.rows
+                ]);
+                let scene_corners = new cv.Mat();
+                cv.perspectiveTransform(obj_corners, scene_corners, M_pano);
+
+                // Tính toán Scale đồng nhất (Uniform Scale) và Rotation để tránh Skew
+                // Cách an toàn nhất là tìm bounding box chữ nhật (minAreaRect) bao quanh 4 điểm
+                let contour = new cv.Mat();
+                scene_corners.convertTo(contour, cv.CV_32FC2);
+
+                // create MatVector
+                let contoursVector = new cv.MatVector();
+                contoursVector.push_back(contour);
+
+                let rect = cv.minAreaRect(contour);
+                // rect có chứa: rect.center (x,y), rect.size (width, height), rect.angle
+
+                let cx = rect.center.x;
+                let cy = rect.center.y;
+                let angle = rect.angle;
+
+                // Do tính chất của minAreaRect trong OpenCV, angle thường nằm trong [-90, 0)
+                // và width/height có thể bị tráo đổi nếu hình chữ nhật nghiêng sát trục y.
+                // Hàm fix logic góc của minAreaRect:
+                let rectW = rect.size.width;
+                let rectH = rect.size.height;
+                if (rectW < rectH) {
+                    angle = angle + 90;
+                    // swap
+                    let tmp = rectW;
+                    rectW = rectH;
+                    rectH = tmp;
+                }
+
+                // Tính kích thước (Scale đồng nhất)
+                let widthObj = src.cols;
+                let heightObj = src.rows;
+                let scaleStr = rectW / widthObj;
+
+                // Lấy góc Rotation từ 2 keypoint hàng đầu cho chính xác nếu minAreaRect đảo chiều 180 độ
+                let pt1 = { x: scene_corners.data32F[0], y: scene_corners.data32F[1] };
+                let pt2 = { x: scene_corners.data32F[2], y: scene_corners.data32F[3] };
+                let dx = pt2.x - pt1.x;
+                let dy = pt2.y - pt1.y;
+                let realAngle = 0//Math.atan2(dy, dx) * 180 / Math.PI; [coco_edited]
+
+                // Tạo ma trận xoay và scale Affine 2D lý tưởng (Rigid Transform) KHÔNG SKEW
+                let centerPoint = new cv.Point(widthObj / 2, heightObj / 2);
+                let M = cv.getRotationMatrix2D(centerPoint, realAngle, scaleStr);
+
+                // Điều chỉnh dịch chuyển (Translation) để khớp tâm ảnh nhỏ với tâm mới tìm được
+                // Tâm hiện tại sau khi Rotation qua getRotationMatrix2D
+                let rotated_cx = M.doublePtr(0, 0)[0] * centerPoint.x + M.doublePtr(0, 1)[0] * centerPoint.y + M.doublePtr(0, 2)[0];
+                let rotated_cy = M.doublePtr(1, 0)[0] * centerPoint.x + M.doublePtr(1, 1)[0] * centerPoint.y + M.doublePtr(1, 2)[0];
+
+                M.doublePtr(0, 2)[0] += (cx - rotated_cx);
+                M.doublePtr(1, 2)[0] += (cy - rotated_cy);
+
+                let w = src.cols;
+                let h = src.rows;
+
+                // Hàm Helper để biến đổi 1 điểm (x, y) qua ma trận Rigid lý tưởng
+                let m11 = M.doublePtr(0, 0)[0], m12 = M.doublePtr(0, 1)[0], m13 = M.doublePtr(0, 2)[0];
+                let m21 = M.doublePtr(1, 0)[0], m22 = M.doublePtr(1, 1)[0], m23 = M.doublePtr(1, 2)[0];
+                function transformPoint(x, y) {
+                    return {
+                        x: m11 * x + m12 * y + m13,
+                        y: m21 * x + m22 * y + m23
+                    };
+                }
+
+                let p1 = transformPoint(0, 0);       // Top-Left
+                let p2 = transformPoint(w, 0);       // Top-Right
+                let p3 = transformPoint(w, h);       // Bottom-Right
+                let p4 = transformPoint(0, h);       // Bottom-Left
+
+                // 3. Sử dụng HTML5 Canvas API để vẽ phần chèn lồng ghép (Overlay hiển thị trực quan)
+                let canvas = document.getElementById('canvasResult');
+                let ctx = canvas.getContext('2d');
+
+                // Làm mờ toàn bộ Background ngoài vùng khớp gần như biến thành màu đen xịt (đậm hơn)
+                ctx.fillStyle = "rgba(0, 0, 0, 0.85)";
+                ctx.beginPath();
+                ctx.rect(0, 0, canvas.width, canvas.height); // Toàn màn hình
+                // Khoét lỗ vùng khớp
+                ctx.moveTo(p1.x, p1.y);
+                ctx.lineTo(p4.x, p4.y);
+                ctx.lineTo(p3.x, p3.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.lineTo(p1.x, p1.y);
+                ctx.fill("evenodd");
+
+                // Vẽ viền Neon xanh lá cây báo hiệu vùng đã khớp
+                ctx.beginPath();
+                ctx.moveTo(p1.x, p1.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.lineTo(p3.x, p3.y);
+                ctx.lineTo(p4.x, p4.y);
+                ctx.closePath();
+                ctx.lineWidth = 4;
+                ctx.strokeStyle = "#00ff00";
+                ctx.shadowColor = "#00ff00";
+                ctx.shadowBlur = 10;
+                ctx.stroke();
+
+                // 4. (Tùy chọn) Vẽ chính xác ảnh "đã được warp" đè lên vùng đó 
+                // Ở đây chúng ta vẽ trực tiếp pixel warp từ OpenCV (Dùng warpAffine thay cho warpPerspective)
+                let warpedSrc = new cv.Mat();
+                cv.warpAffine(src, warpedSrc, M, new cv.Size(dst.cols, dst.rows));
+
+                // Tạo canvas tạm để hiển thị warpedSrc, sau đó draw đè lên canvasResult
+                let tmpCanvas = document.createElement('canvas');
+                cv.imshow(tmpCanvas, warpedSrc);
+                ctx.shadowBlur = 0; // Tắt shadow để không làm mờ ảnh
+                ctx.globalCompositeOperation = "source-over"; // Đảm bảo vẽ đè bình thường
+                ctx.drawImage(tmpCanvas, 0, 0);
+
+                status.innerText = 'Hoàn thành! Ảnh nhỏ đã được đặt chính xác vào Background (chỉ Scale X,Y)!';
+                canvas.classList.add('found');
+
+                // Cleanup OpenCV
+                src.delete(); dst.delete(); graySrc.delete(); grayDst.delete();
+                kp1.delete(); kp2.delete(); des1.delete(); des2.delete();
+                M.delete(); M_pano.delete(); warpedSrc.delete();
+                srcMat.delete(); dstMat.delete(); obj_corners.delete(); scene_corners.delete();
+                contour.delete(); contoursVector.delete();
+            } catch (err) {
+                status.innerText = 'Lỗi: ' + (err.message || err);
+                console.error(err);
+                canvasRes.classList.remove('found');
+            }
+        }
+    </script>
+</body>
+
+</html>
