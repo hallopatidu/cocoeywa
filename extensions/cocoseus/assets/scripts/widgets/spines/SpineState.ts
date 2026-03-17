@@ -1,12 +1,11 @@
 import { __private, _decorator, CCBoolean, Component, error, EventHandler, js, Node, sp, tween, Tween } from 'cc';
 
 import { EDITOR } from 'cc/env';
-// import { cocoseus } from '../../cocoseus';
-// import { ISpineView } from '../../cocoseus/decorator/SpineView';
-// import { BlockStatus, PlayBlock } from '../core/PlayBlock';
-// import { IPlayBlock, SpSkeletonType } from '../core/BlockType';
-import { cocoseus } from 'db://cocoseus/scripts/definition/cocoseus';
-import { ISpineView } from 'db://cocoseus/scripts/widgets/SpineView';
+import { cocoseus } from '../../definition/cocoseus';
+import { PipelinePlayer } from '../pipelines/PipelinePlayer';
+import { ISpineView, SpineStateOption, SpineStatus, SpSkeletonType } from './SpineType';
+import { IPipelinePlayer, PipelineStatus } from '../pipelines/PipelineType';
+
 
 
 const { ccclass, property, executeInEditMode, menu } = _decorator;
@@ -63,7 +62,7 @@ export class SpineStateElement implements ISpineView {
 @ccclass('SpineState')
 @menu('Animation Assistance/SpineState')
 @executeInEditMode(true)
-export class SpineState extends PlayBlock implements IPlayBlock {
+export class SpineState extends PipelinePlayer implements IPipelinePlayer {
     @property({ serializable: true, visible: false })
     private _spine: sp.Skeleton | null = null;
 
@@ -191,8 +190,8 @@ export class SpineState extends PlayBlock implements IPlayBlock {
     }
 
     protected _currentState: SpineStateElement[] = [];
-    private _waitStateDone: Function | null = null;
-    protected options: SpineStateOption = { status: BlockStatus.INIT };
+    private _waitStateDone: Function | null = null;    
+    protected options: SpineStateOption = { status: PipelineStatus.INIT };
 
     [IncreaseTotalDuration](duration: number) {
         this._totalDuration += duration

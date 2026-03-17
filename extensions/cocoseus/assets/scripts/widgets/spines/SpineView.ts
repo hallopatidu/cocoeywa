@@ -3,34 +3,17 @@ import { _decorator, Constructor, Enum, errorID, js, log, Node, sp, Tween, tween
 
 import { EDITOR } from 'cc/env';
 import { cocoseus } from 'db://cocoseus/scripts/definition/cocoseus';
-
+import { ISpineView } from './SpineType';
 
 const { property } = _decorator;
 const { CCClassify, CCEditor } = cocoseus
 // const {tween} = CocoTween;
 
 export const SpineViewClassName:string = "SpineView";
-
-export interface ISpineView {
-    get spine(): sp.Skeleton | null;
-    set spine(value: sp.Skeleton | null);
-    get duration(): number;
-    play(duration?:number): Promise<string>;
-    stop():void;
-    skip():void;
-    loopInTime(duration:number): Promise<string>;
-    activeLoop(value:boolean):void
-    get active():boolean
-    set active(value:boolean)
-    getAnimation():string
-    getSkin():string
-    get repeatTime():number
-}
-
 /**
  * 
  */
-export default CCClassify<ISpineView, void|Constructor>(function spineViewify<TBase>(base:Constructor<TBase>):Constructor<TBase & ISpineView>{
+export default CCClassify<ISpineView>(function spineViewify<TBase>(base:Constructor<TBase>):Constructor<TBase & ISpineView>{
     let DefaultSkinsEnum = Enum({ 'default': -1 });
     let DefaultAnimsEnum = Enum({ '<None>': 0 });
     // 

@@ -70,7 +70,7 @@ export default cocoseus.CCClassify<IPipelinify>(function pipelinify<TBase>(base:
      * @see {@link PipeJointType} For pipe function interface
      * @see {@link IPipelinify} For pipeline interface
      */
-    class Pipelineified extends (base as unknown as Constructor<Component>)implements IPipelinify{
+    class Pipeline_ified extends (base as unknown as Constructor<Component>)implements IPipelinify{
 
         public pipes: Array<PipeJointType> = [];
 
@@ -246,5 +246,5 @@ export default cocoseus.CCClassify<IPipelinify>(function pipelinify<TBase>(base:
         }
     }
 
-    return Pipelineified as unknown as Constructor<TBase & IPipelinify>;
+    return Pipeline_ified as unknown as Constructor<TBase & IPipelinify>;
 }, PipelineifyClassName)

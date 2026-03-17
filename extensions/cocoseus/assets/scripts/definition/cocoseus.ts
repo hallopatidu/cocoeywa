@@ -15,7 +15,5 @@ export namespace cocoseus {
 
     export const spineViewify = cocoseus_widgets.spineViewify;
     export const pipelinify = cocoseus_widgets.pipelinify;
-    export namespace decorate {
-        export const pipelinify = cocoseus_cceditor.makeSmartClassDecorator<string>((constructor) => Pipelineify(constructor))
-    }
+    
 }
