@@ -5,7 +5,7 @@ import { AssetHandlers } from '@cocos/creator-types/editor/packages/builder/@typ
 import { outputFile } from 'fs-extra';
 import { readdir, stat, unlink, rename, readFile, writeFile } from 'fs/promises';
 import { join, extname } from 'path';
-import { ns540hz } from './decorator';
+import { cocoshield } from './decorator';
 import { IOptions } from '../@types';
 
 export const compressTextures: AssetHandlers.compressTextures = async (tasks) => {
@@ -158,7 +158,7 @@ export async function renameMD5Files(folderPath: string, filesToClean: string[])
     const cleanSet = new Set(filesToClean); // tối ưu tra cứu
 
     const renameTasks = files.map(async (file) => {
-        const cleanedName = ns540hz.utils.file.removeMd5FromFilename(file);
+        const cleanedName = cocoshield.utils.file.removeMd5FromFilename(file);
         if (cleanSet.has(cleanedName) && cleanedName !== file) {
             const oldPath = join(folderPath, file);
             const newPath = join(folderPath, cleanedName);
@@ -179,7 +179,7 @@ export async function removeDevModeFolder(folderPath: string, config: IOptions):
         const stats = await stat(devModeFolderPath);
         if (stats.isDirectory()) {
             // remove folder
-            await ns540hz.utils.file.removeFolder(devModeFolderPath);
+            await cocoshield.utils.file.removeFolder(devModeFolderPath);
             console.log(`Removed devmode folder: ${devModeFolderPath}`);
         }
     } catch (err) {

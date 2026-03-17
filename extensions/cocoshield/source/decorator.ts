@@ -3,7 +3,7 @@ import { ExecOptions, exec as run, spawn as produce } from 'child_process';
 import { readdir, rm, stat, unlink } from 'fs/promises';
 import path, { join } from 'path';
 
-export namespace ns540hz {
+export namespace cocoshield {
     export interface IResultCmd {
         data: any;
         err: any;

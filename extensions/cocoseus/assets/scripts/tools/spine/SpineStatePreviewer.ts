@@ -5,7 +5,7 @@ import { SpineState } from 'db://cocoseus/scripts/widgets/spines/SpineState';
 import { EditorMode, SpineStateOption, SpSkeletonType } from 'db://cocoseus/scripts/widgets/spines/SpineType';
 import { cocoseus } from '../../definition/cocoseus';
 const { ccclass, property, executeInEditMode, menu } = _decorator;
-const {strings} = cocoseus.utils
+const { strings } = cocoseus.utils
 
 const DefaultAnimationClipData = {
     __type__: "cc.AnimationClip",
@@ -30,16 +30,16 @@ const DefaultAnimationClipData = {
  * author: coco.magic - hallopatidu
  * 
  */
-@ccclass('SpinePreviewer')
-@menu('Game Assistance/SpinePreviewer')
+@ccclass('SpineStatePreviewer')
+@menu('Game Assistance/SpineStatePreviewer')
 @executeInEditMode(true)
-export class SpinePreviewer extends Animation {
+export class SpineStatePreviewer extends Animation {
 
-    private static __runningPreviewerUuid:string = null
+    private static __runningPreviewerUuid: string = null
 
     static get isAnimationMode(): boolean {
-        if(EDITOR){
-            const currentMode:string = Editor.EditMode.getMode();
+        if (EDITOR) {
+            const currentMode: string = Editor.EditMode.getMode();
             return currentMode == EditorMode.Animation;
         }
         return false;
@@ -50,7 +50,7 @@ export class SpinePreviewer extends Animation {
 
     private _isRunning: boolean = false;
 
-    private _spineState : SpineState = null;
+    private _spineState: SpineState = null;
     protected get spineState(): SpineState {
         // if(!this._spineState){
         //     const components:Component[] = this.getComponents(Component);  
@@ -63,28 +63,28 @@ export class SpinePreviewer extends Animation {
         // }
         return this._spineState;
     }
-    
+
     @property({ type: sp.Skeleton })
     public get spine(): sp.Skeleton {
         return this._spine;
     }
     public set spine(value: sp.Skeleton) {
-        if(this._spine === value) return;
+        if (this._spine === value) return;
         this._spine = value;
-        if(!SpinePreviewer.isAnimationMode){
-            if(value && value.skeletonData){
+        if (!SpineStatePreviewer.isAnimationMode) {
+            if (value && value.skeletonData) {
                 // this.updateSpine(value);    
-                const skeletonData:sp.SkeletonData = value.skeletonData;
-                const uuid:string = skeletonData.uuid;
+                const skeletonData: sp.SkeletonData = value.skeletonData;
+                const uuid: string = skeletonData.uuid;
                 this.referenceAnimationAsset(uuid);
 
-            }else if(value && !value.skeletonData){
+            } else if (value && !value.skeletonData) {
                 error('Reference to Spine Component fail. You need SkeletonData Asset for this Spine Component !')
-            }else{
-                this.clips.forEach((clip:AnimationClip)=>{
+            } else {
+                this.clips.forEach((clip: AnimationClip) => {
                     this.removeClip(clip, true);
-                }) 
-                this.defaultClip = null;        
+                })
+                this.defaultClip = null;
             }
         }
     }
@@ -99,9 +99,9 @@ export class SpinePreviewer extends Animation {
         }
     })
     public get playInEditor(): boolean {
-        if(EDITOR){
-            const currentMode:string = Editor.EditMode.getMode();
-            if(currentMode == EditorMode.Animation){
+        if (EDITOR) {
+            const currentMode: string = Editor.EditMode.getMode();
+            if (currentMode == EditorMode.Animation) {
                 this._isRunning = true
             }
         }
@@ -109,23 +109,23 @@ export class SpinePreviewer extends Animation {
     }
 
     public set playInEditor(value: boolean) {
-        if(EDITOR){
-            if(value){
-                this.playAnimation();                
-            }else if(!value && SpinePreviewer.__runningPreviewerUuid == this.uuid){
+        if (EDITOR) {
+            if (value) {
+                this.playAnimation();
+            } else if (!value && SpineStatePreviewer.__runningPreviewerUuid == this.uuid) {
 
-                const checkMode:string = Editor.EditMode.getMode();
+                const checkMode: string = Editor.EditMode.getMode();
                 this.spineState && this.spineState.cancel();
-                if(checkMode == EditorMode.Animation){
+                if (checkMode == EditorMode.Animation) {
                     // 
-                    const currentClip:AnimationClip = this.clips[0];
-                    if(currentClip){
+                    const currentClip: AnimationClip = this.clips[0];
+                    if (currentClip) {
                         Editor.Message.request('scene', 'change-clip-state', 'stop', currentClip.uuid);
                     }
                     Editor.Message.request('scene', "close-scene")
-                    SpinePreviewer.__runningPreviewerUuid = null;
+                    SpineStatePreviewer.__runningPreviewerUuid = null;
                 }
-            }else{
+            } else {
                 return;
             }
         }
@@ -133,15 +133,15 @@ export class SpinePreviewer extends Animation {
     }
 
     @property({
-        override:true,
-        visible:false
+        override: true,
+        visible: false
     })
     playOnLoad: boolean;
 
     @property({
-        type:AnimationClip,
-        visible:false,
-        override:true
+        type: AnimationClip,
+        visible: false,
+        override: true
     })
     get defaultClip(): AnimationClip {
         return this._defaultClip
@@ -151,9 +151,9 @@ export class SpinePreviewer extends Animation {
     }
 
     @property({
-        type:[AnimationClip],
-        visible:false,
-        override:true
+        type: [AnimationClip],
+        visible: false,
+        override: true
     })
     get clips(): AnimationClip[] {
         return this._clips
@@ -163,7 +163,7 @@ export class SpinePreviewer extends Animation {
     }
 
     async onLoad(): Promise<void> {
-        if(!this.spine){
+        if (!this.spine) {
             // const components:Component[] = this.getComponents(Component);
             // let nearState:SpineState|null = null;
             // components.find((comp:Component)=>{
@@ -173,52 +173,52 @@ export class SpinePreviewer extends Animation {
             //     return comp  == this;
             // });
 
-            const stateLeader:SpineState = this.getComponent(SpineState)
-            if(stateLeader){
+            const stateLeader: SpineState = this.getComponent(SpineState)
+            if (stateLeader) {
                 this._spineState = stateLeader;
                 this.spine = stateLeader.spine;
-                
+
                 // change spine when state is running
-                this.node.on(SpineState.BlockEvent.START , (options:SpineStateOption)=>{
-                    if(options?.spine){
+                this.node.on(SpineState.BlockEvent.START, (options: SpineStateOption) => {
+                    if (options?.spine) {
                         this.spine = options.spine;
                     }
                 }, this)
             }
-            if(!this.spine){
+            if (!this.spine) {
                 this.spine = this.getComponent(sp.Skeleton) || this.getComponentInChildren(sp.Skeleton);
             }
         }
-        
+
     }
 
     onDestroy(): void {
-        if(this._spineState){
+        if (this._spineState) {
             this.node.off(SpineState.BlockEvent.START);
         }
         super.onDestroy && super.onDestroy()
     }
 
-    private async referenceAnimationAsset(targetAssetUuid:string):Promise<void>{
-        if(EDITOR){
-            const uuid:string = targetAssetUuid
-            const url:string = await Editor.Message.request('asset-db', "query-url", uuid);
-            const relativePath:string = strings.getPathWithoutFileName(url);
-            const animAssetName:string = strings.getFilenameWithoutExtension(url);
-            const animAssetUrl:string = relativePath + animAssetName + '.anim';
+    private async referenceAnimationAsset(targetAssetUuid: string): Promise<void> {
+        if (EDITOR) {
+            const uuid: string = targetAssetUuid
+            const url: string = await Editor.Message.request('asset-db', "query-url", uuid);
+            const relativePath: string = strings.getPathWithoutFileName(url);
+            const animAssetName: string = strings.getFilenameWithoutExtension(url);
+            const animAssetUrl: string = relativePath + animAssetName + '.anim';
             // 
-            let isNewAsset:boolean = false;
-            let assetInfo:AssetInfo = await Editor.Message.request('asset-db', 'query-asset-info', animAssetUrl);
-            if(!assetInfo){
+            let isNewAsset: boolean = false;
+            let assetInfo: AssetInfo = await Editor.Message.request('asset-db', 'query-asset-info', animAssetUrl);
+            if (!assetInfo) {
                 assetInfo = await Editor.Message.request('asset-db', 'create-asset', animAssetUrl, JSON.stringify(DefaultAnimationClipData));
-                
+
                 await Editor.Message.request('asset-db', 'refresh-asset', assetInfo.uuid);
                 isNewAsset = true;
             }
             // const animationAssetUuid:string = assetInfo.uuid;
 
-            const animationClip:AnimationClip = await this.loadAnimationClipByUuid(assetInfo.uuid);    
-            if(animationClip){
+            const animationClip: AnimationClip = await this.loadAnimationClipByUuid(assetInfo.uuid);
+            if (animationClip) {
                 this.addClip(animationClip, assetInfo.name);
                 this.defaultClip = animationClip;
                 isNewAsset && await Editor.Message.request('scene', 'soft-reload');
@@ -227,17 +227,17 @@ export class SpinePreviewer extends Animation {
     }
 
 
-    private async playAnimation(){
-        if(EDITOR){
-            
-            const currentClip:AnimationClip = this.clips[0];
-            const selectedNodeUuid:string = this.node.uuid// this.spine?.node.uuid;
+    private async playAnimation() {
+        if (EDITOR) {
+
+            const currentClip: AnimationClip = this.clips[0];
+            const selectedNodeUuid: string = this.node.uuid// this.spine?.node.uuid;
             // const sceneUUID:string = await Editor.Message.request('scene', 'query-current-scene');
             await Editor.Message.request('scene', 'record-animation', selectedNodeUuid, true, currentClip.uuid);
-            SpinePreviewer.__runningPreviewerUuid = this.uuid;
+            SpineStatePreviewer.__runningPreviewerUuid = this.uuid;
             // await Editor.Message.request('scene', 'record-animation', selectedNodeUuid, true, ...clips);
             await Editor.Message.request('scene', 'query-node', selectedNodeUuid);
-            
+
             // await Editor.Message.request('scene', 'staging', {
             //     assetUuid: sceneUUID,    // prefab  UUID
             //     // animationUuid: firstUUid,
@@ -245,9 +245,9 @@ export class SpinePreviewer extends Animation {
             // Editor.Message.send('scene', EditorSendMessage.Switch_Animation_Mode);
             // await Editor.Message.request('scene', EditorRequestMessage.Unstaging)
             // const currentClip:AnimationClip = this.clips[0]
-            if(currentClip){
+            if (currentClip) {
                 // await Editor.Message.request('scene', 'change-clip-state', 'play', currentClip.uuid);
-                if(this.spineState){
+                if (this.spineState) {
                     // Editor.Message.request('scene', 'change-clip-state', 'play', currentClip.uuid);
                     // await this.spineState.execute();
                     await this.excuteSpineState();
@@ -259,10 +259,10 @@ export class SpinePreviewer extends Animation {
         }
     }
 
-    private async excuteSpineState(){
-        if(this.spineState){
+    private async excuteSpineState() {
+        if (this.spineState) {
             await this.spineState.execute();
-            if(this.playInEditor && this.loop){
+            if (this.playInEditor && this.loop) {
                 await this.excuteSpineState();
             }
         }
@@ -273,9 +273,9 @@ export class SpinePreviewer extends Animation {
      * Update skeleton animation.
      * @param dt delta time.
      */
-    public updateSpineAnimation (dt: number): void {
-        if(!this.spine) return;
-        const spine:SpSkeletonType = this.spine as SpSkeletonType;
+    public updateSpineAnimation(dt: number): void {
+        if (!this.spine) return;
+        const spine: SpSkeletonType = this.spine as SpSkeletonType;
         spine.markForUpdateRenderData();
         if (spine.paused) return;
         dt *= spine.timeScale * 1;
@@ -313,8 +313,8 @@ export class SpinePreviewer extends Animation {
      * @param uuid 
      * @returns 
      */
-    private async  loadAnimationClipByUuid(uuid:string):Promise<AnimationClip|null>{
-        return new Promise<AnimationClip|null>((resolve, reject)=>{
+    private async loadAnimationClipByUuid(uuid: string): Promise<AnimationClip | null> {
+        return new Promise<AnimationClip | null>((resolve, reject) => {
             assetManager.loadAny({ uuid: uuid }, (err, asset) => {
                 if (err) {
                     console.error('Failed to load asset:', err);
@@ -326,9 +326,9 @@ export class SpinePreviewer extends Animation {
         })
     }
 
-    
+
     update(deltaTime: number) {
-        if(this.playInEditor && SpinePreviewer.__runningPreviewerUuid == this.uuid){
+        if (this.playInEditor && SpineStatePreviewer.__runningPreviewerUuid == this.uuid) {
             this.updateSpineAnimation(deltaTime);
             // SkeletonSystem
             // director.getSystem('SKELETON').postUpdate(deltaTime)

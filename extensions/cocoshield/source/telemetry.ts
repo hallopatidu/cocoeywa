@@ -1,5 +1,5 @@
 import { IOptions } from "../@types";
-import { ns540hz } from "./decorator";
+import { cocoshield } from "./decorator";
 import path, { join } from 'path';
 import { EXTENSION_PATH, RUNTIME_PATH, TOOLS_PATH } from "./global";
 
@@ -32,7 +32,7 @@ export async function generateTelemetrySDK(config: IOptions, runtimePath:string 
             PATCH_SCRIPT: patchScriptPath,
             TELEMETRY_ENVIRONMENT: config.environment,            
         }
-        let result = await ns540hz.progress.spawn(
+        let result = await cocoshield.progress.spawn(
             'node',
             [TELEMETRY_APP_PATH],
             {
@@ -71,7 +71,7 @@ export async function generateSentrySDK(config: IOptions, runtimePath:string = R
             SENTRY_TRACE_SAMPLE_RATE: config.sentryTraceSampleRate,
             SENTRY_RELEASE: config.sentryRelease,
         }
-        let result = await ns540hz.progress.spawn(
+        let result = await cocoshield.progress.spawn(
             'node',
             [SENTRY_APP_PATH],
             {
@@ -106,7 +106,7 @@ export async function generateGoogleAnalyticSDK(config: IOptions, runtimePath:st
             ENABLE:config.enableGA ? 'true' : 'false',
             GA_KEY: config.gaKey
         }
-        let result = await ns540hz.progress.spawn(
+        let result = await cocoshield.progress.spawn(
             'node',
             [GA_APP_PATH],
             {

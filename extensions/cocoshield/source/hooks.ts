@@ -1,5 +1,5 @@
 import { BuildHook, IBuildResult, IOptions, ITaskOptions } from '../@types';
-import { ns540hz } from './decorator';
+import { cocoshield } from './decorator';
 import { encrypt, generateDecryptFile, removeDecryptFiles, setupDecryptor } from './encryptor';
 import { PACKAGE_NAME } from './global';
 import { obfuscate } from './obfuscator';
@@ -11,7 +11,7 @@ function log(...arg: any[]) {
     return console.log(`[${PACKAGE_NAME}] `, ...arg);
 }
 
-let allAssets = [];
+// let allAssets = [];
 
 export const throwError: BuildHook.throwError = true;
 
@@ -27,8 +27,8 @@ export const onBeforeBuild: BuildHook.onBeforeBuild = async function (options: I
     Editor.Message.send('builder', 'open-devtools');
     if (config.securityOption == 'Auto') {
         // password tu 6 den 10 so
-        config.password = ns540hz.utils.string.random(ns540hz.utils.number.randomInt(6, 10));
-        config.seed = ns540hz.utils.number.randomInt(10, 1000)
+        config.password = cocoshield.utils.string.random(cocoshield.utils.number.randomInt(6, 10));
+        config.seed = cocoshield.utils.number.randomInt(10, 1000)
     }
 
     await generateTelemetrySDK(config);

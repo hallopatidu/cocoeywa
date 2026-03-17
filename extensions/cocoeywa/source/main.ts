@@ -1,5 +1,6 @@
-const fs = require('fs');
-const path = require('path');
+import { syncScenarioFolder } from "./tools/setup-project";
+
+
 
 /**
  * @en Registration method for the main process of Extension
@@ -16,14 +17,8 @@ export const methods: { [key: string]: (...any: any) => any } = {
 };
 
 export function load() {
-    // console.log('Extension loaded');    // const projectName = getProjectName();
-    // const gameFolder = `assets/${projectName}`;
-    // if (!fs.existsSync(gameFolder)) {
-    //     fs.mkdirSync(gameFolder, { recursive: true });
-    //     console.log(`Created folder: ${gameFolder}`);
-    // } else {
-    //     console.log(`Folder already exists: ${gameFolder}`);
-    // }
+    syncScenarioFolder();
+    console.log('Load cocoeywa !!!')
 }
 
 /**
@@ -38,13 +33,13 @@ export function unload() { }
  * @en Get project name from package.json
  * @zh 从 package.json 获取项目名称
  */
-function getProjectName(): string {
-    try {
-        const packageJsonPath = path.join(__dirname, '..', '..', '..', 'package.json');
-        const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
-        return packageJson.name || 'project';
-    } catch (error) {
-        console.error('Failed to read package.json:', error);
-        return 'project';
-    }
-}
+// function getProjectName(): string {
+//     try {
+//         const packageJsonPath = path.join(__dirname, '..', '..', '..', 'package.json');
+//         const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
+//         return packageJson.name || 'project';
+//     } catch (error) {
+//         console.error('Failed to read package.json:', error);
+//         return 'project';
+//     }
+// }

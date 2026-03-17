@@ -2,7 +2,7 @@ import CryptoJS from 'crypto-js';
 import { copyFile, mkdir, readdir, readFile, rm, rmdir, stat, unlink, writeFile,  } from 'fs/promises';
 import path, { join } from 'path';
 import { EXTENSION_PATH, RUNTIME_PATH, SUPPORT_ENCRYPTED_IMAGES, TOOLS_PATH } from './global';
-import { ns540hz } from './decorator';
+import { cocoshield } from './decorator';
 import { existsSync } from 'fs';
 import { IOptions } from '../@types';
 import { size } from 'cc';
@@ -83,7 +83,7 @@ export async function generateDecryptFile(config: IOptions, runtimePath:string =
     if(PERMS.length) {
         envOption['PERMS'] = PERMS;
     }
-    let result = await ns540hz.progress.spawn(
+    let result = await cocoshield.progress.spawn(
         'node',
         [DECRYPTOR_APP_PATH],
         {
@@ -110,7 +110,7 @@ export async function generateDecryptFile(config: IOptions, runtimePath:string =
 export async function removeDecryptFiles(runtimePath:string = RUNTIME_PATH) {
     DefaultOffsetBuffers.clear();
     const runtimeDecryptorFolder:string = join(runtimePath, DECRYPT_FOLDER_NAME);
-    await ns540hz.utils.file.deleteAllFiles(runtimeDecryptorFolder);
+    await cocoshield.utils.file.deleteAllFiles(runtimeDecryptorFolder);
 }    
 
 
@@ -120,7 +120,7 @@ export async function removeDecryptFiles(runtimePath:string = RUNTIME_PATH) {
  */
 export async function encrypt(folderPath:string, config:IOptions){
     if(config.enableEncryption){
-        const files = await ns540hz.utils.file.getAllImageFilePaths(folderPath, SUPPORT_ENCRYPTED_IMAGES);
+        const files = await cocoshield.utils.file.getAllImageFilePaths(folderPath, SUPPORT_ENCRYPTED_IMAGES);
         const encryptProgress:Promise<void>[] = [];
         // console.log('\n START convert ' ,files, '\n')
         files.forEach((file:string)=>{
@@ -163,7 +163,7 @@ async function encryptPartialFile(filePath:string, outputPath:string, config:IOp
     const data:Buffer = await readFile(filePath);
     const wordArray = CryptoJS.lib.WordArray.create(data as Uint8Array);
     const partialRatio:number = config.encryptionLevel/100;
-    wordArray.words = ns540hz.utils.array.shuffle(wordArray.words, {
+    wordArray.words = cocoshield.utils.array.shuffle(wordArray.words, {
         seed:config.seed,
         partialRatio:partialRatio
     });

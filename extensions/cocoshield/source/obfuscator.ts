@@ -2,7 +2,7 @@ import { IOptions } from "../@types";
 import { readdir, stat } from 'fs/promises';
 import { join } from 'path';
 // import { asyncExec, asyncSpawn, ResultCmd } from './progress-runner';
-import { ns540hz } from "./decorator";
+import { cocoshield } from "./decorator";
 import { EXTENSION_PATH, TOOLS_PATH } from "./global";
 
 const TOOL_NAME: string = 'js-obfuscator';
@@ -37,7 +37,7 @@ export async function obfuscate(folderPath: string, config: IOptions, sourceMapP
         }
         const obfuscatePath:string = join(EXTENSION_PATH, PACKAGE_PATH, OBFUSCATE_APP);
         console.log("Run script obfuscate: ", obfuscatePath);
-        let result = await ns540hz.progress.spawn(
+        let result = await cocoshield.progress.spawn(
             'node',
             // [join(PLUGIN_PATH, PACKAGE_PATH, OBFUSCATE_APP)],
             [obfuscatePath],

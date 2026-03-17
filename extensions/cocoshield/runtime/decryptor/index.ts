@@ -1,7 +1,7 @@
 
 import { __private, AssetManager, assetManager, cclegacy, ImageAsset, SpriteFrame, sys, Texture2D } from "cc";
 import { BUILD } from "cc/env";
-import CryptoJS from 'crypto-js';
+// import { AES } from "crypto-js"; 
 
 type FileProgressCallback = (loaded: number, total: number) => void;
 type DomImageInputParams = (url: Blob, options: Record<string, any>, onComplete: ((err: Error | null, data?: HTMLImageElement | null) => void)) => HTMLImageElement;
@@ -18,7 +18,7 @@ const SIGBYTES:Record<string, number> = {".png":388,".jpg":524,".jpeg":524};
 
 // ----------------
 
-namespace ns540hz {
+namespace cocoshield {
     export type IShufferOption = {
         seed?: number,
         partialRatio?: number
@@ -197,7 +197,7 @@ namespace ns540hz {
             const encryptedText:string = decoder.decode(arrayBuffer);
             const decrypted:CryptoJS.lib.WordArray = CryptoJS.enc.Base64.parse(encryptedText);
             // Chuyển về WordArray rồi sang Uint8Array
-            const words = ns540hz.utils.array.unshuffle(decrypted.words, {
+            const words = cocoshield.utils.array.unshuffle(decrypted.words, {
                 seed: SEED,
                 perms:PERMS?.length ? PERMS : null,
                 partialRatio: RATIO
@@ -216,7 +216,7 @@ namespace ns540hz {
             try{
                 options.xhrResponseType = 'blob';
                 const response: DownloadResponseType = await downloadFile(url, options, options.onFileProgress as FileProgressCallback);
-                const extKey:string = ns540hz.assets.getFileExtension(url);
+                const extKey:string = cocoshield.assets.getFileExtension(url);
                 const sigBytes:number = SIGBYTES[extKey];
                 const decryptedBlob: Blob = await decryptImage(response.data,{
                   startByte:sigBytes,
@@ -241,7 +241,7 @@ namespace ns540hz {
                     throw new Error('Do not download image : ' + url);
                 }
                 // Decrypt file
-                const extKey:string = ns540hz.assets.getFileExtension(url);
+                const extKey:string = cocoshield.assets.getFileExtension(url);
                 const sigBytes:number = SIGBYTES[extKey];
                 const decryptedBlob: Blob = await decryptImage(response.data,{
                   startByte:sigBytes,
@@ -290,11 +290,11 @@ namespace ns540hz {
 if(BUILD && ENABLE){
     const keys:string[] = Object.keys(SIGBYTES);
     keys.forEach((extKey:string)=>{
-        assetManager.downloader.register(extKey, ns540hz.assets.downloadAndDecryptImage);    
+        assetManager.downloader.register(extKey, cocoshield.assets.downloadAndDecryptImage);    
     })
 }
 
 // Register image extension for decryption
-// BUILD && assetManager.downloader.register('.png', ns540hz.assets.downloadAndDecryptImage);
-// BUILD && assetManager.downloader.register('.jpg', ns540hz.assets.downloadAndDecryptImage);
-// BUILD && assetManager.downloader.register('.jpeg', ns540hz.assets.downloadAndDecryptImage);
+// BUILD && assetManager.downloader.register('.png', cocoshield.assets.downloadAndDecryptImage);
+// BUILD && assetManager.downloader.register('.jpg', cocoshield.assets.downloadAndDecryptImage);
+// BUILD && assetManager.downloader.register('.jpeg', cocoshield.assets.downloadAndDecryptImage);
